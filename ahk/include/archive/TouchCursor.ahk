@@ -17,14 +17,14 @@ Space & -::Send, {F11}
 Space & =::Send, {F12}
 
 ; Multimedia
-Space & Esc::Send, {Media_Prev}
-Space & `::Send, {Media_Prev}
-Space & BS::Send, {Media_Next}
+; Space & Esc::Send, {Media_Prev}
+; Space & `::Send, {Media_Prev}
+; Space & BS::Send, {Media_Next}
 
-Space & y::Send, {Volume_Mute}
-Space & [::Send, {Volume_Down}
-Space & ]::Send, {Volume_Up}
-Space & \::Send, {Media_Play_Pause}
+; Space & y::Send, {Volume_Mute}
+; Space & [::Send, {Volume_Down}
+; Space & ]::Send, {Volume_Up}
+; Space & \::Send, {Media_Play_Pause}
 
 ; Task switching
 Space & Tab::AltTab
@@ -36,17 +36,18 @@ Space & e::Send, {Ctrl Down}n{Ctrl Up}
 Space & r::Send, {F5}
 
 ; TouchCursor (minus "insert" ["y" is used to Volume_Mute])
-Space & i::Send, {Up}
-Space & j::Send, {Left}
-Space & k::Send, {Down}
+Space & h::Send, {Left}
+Space & j::Send, {Down}
+Space & k::Send, {Up}
 Space & l::Send, {Right}
 
-Space & p::Send, {Backspace}
-Space & m::Send, {Delete}
+; Space & p::Send, {Backspace}
+; Space & m::Send, {Delete}
+; Space & y::Send, {Insert}
 
-Space & h::Send, {PgUp}
-Space & n::Send, {PgDn}
-Space & u::Send, {Home}
+Space & y::Send, {Home}
+Space & u::Send, {PgDn}
+Space & i::Send, {PgUp}
 Space & o::Send, {End}
 
 ; Select all, Space, Close tab, Find, Again
@@ -107,8 +108,8 @@ Space & b::Send, ``
 Space & t::Send, `~
 
 ; Desktop Navigation
-Space & `;::Send, {Ctrl Down}{LWin Down}{Left}{Ctrl Up}{LWin Up}
-Space &  '::Send, {Ctrl Down}{LWin Down}{Right}{Ctrl Up}{LWin Up}
+; Space & `;::Send, {Ctrl Down}{LWin Down}{Left}{Ctrl Up}{LWin Up}
+; Space &  '::Send, {Ctrl Down}{LWin Down}{Right}{Ctrl Up}{LWin Up}
 
 ; Open Task view
 Space & RShift::Send, {LWin Down}{Tab}{LWin Up}

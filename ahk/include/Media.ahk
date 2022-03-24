@@ -1,9 +1,9 @@
 ; Media_Stop	Stop
-!+^j::
+!+^h::
   Send, {Media_Prev}
 Return
 
-!+^k::
+!+^Space::
   Send, {Media_Play_Pause}
 Return
 
@@ -11,11 +11,11 @@ Return
   Send, {Media_Next}
 Return
 
-!+^h::
+!+^k::
   Send, {Volume_Up}
 Return
 
-!+^n::
+!+^j::
   Send, {Volume_Down}
 Return
 
