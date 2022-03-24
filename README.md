@@ -1,5 +1,14 @@
 # Keyboard Configs For Windows
 
+Eric's Fork of [jeebak/keyboard-windows](https://github.com/jeebak/keyboard-windows).
+- Moved things I do not use to ahk/include/archive
+- Changed some stuff
+- Added bits to start [komorebi](https://github.com/LGUG2Z/komorebi)
+- Dropped TouchCursor.ahk in favor of running the real [TouchCursor](http://martin-stone.github.io/touchcursor/overview.html)
+  - I couldn't figure out how to eliminate the lagginess/sloppiness of the Spacebar using AHK.
+
+# Original README
+
 An attempt to match my [personal mappings](https://pqrs.org/osx/karabiner/complex_modifications/#personal_jeebak) for [Karabiner-Elements](https://pqrs.org/osx/karabiner/) under macOS, for Windows.
 
 Instead of using:

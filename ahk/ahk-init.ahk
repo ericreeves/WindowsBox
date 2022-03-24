@@ -15,11 +15,9 @@
 #SingleInstance Force
 #installKeybdHook
 #Persistent
-; Menu, Tray, Icon , Shell32.dll, 25, 1
-; TrayTip, AutoHotKey, Started, 1
-; SoundBeep, 300, 150
 
 ; Start Komorebi if it's not running
+; https://github.com/LGUG2Z/komorebi
 If !ProcessExist("komorebi.exe")
 {
 Run,  C:\Users\eric\scoop\shims\komorebic.exe start, ,Hide,
@@ -42,17 +40,6 @@ SetWorkingDir, %A_ScriptDir%
 
 ; Media Keys using Tab Hyper Key
 #Include %A_ScriptDir%\include\Media.ahk
-
-; #Include %A_ScriptDir%\include\AdvancedWindowSnap.ahk
-; #Include %A_ScriptDir%\include\AlwaysOnTop.ahk
-; #Include %A_ScriptDir%\include\CapsLockTapEscapeHoldControl.ahk
-; #Include %A_ScriptDir%\include\Screenshots.ahk
-; #Include %A_ScriptDir%\include\DockWin.ahk
-; #Include %A_ScriptDir%\include\QuakeTerminal.ahk
-; #Include %A_ScriptDir%\include\Misc.ahk
-; #Include %A_ScriptDir%\include\LockSleep.ahk
-; #Include %A_ScriptDir%\include\Spotlight.ahk
-; #Include %A_ScriptDir%\include\TouchCursor.ahk
 
 ; ------------------------------------------------------------------------------
 ; Reload this script (Ctrl+Win+Alt+R)
