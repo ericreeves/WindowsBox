@@ -61,6 +61,8 @@ $ChocoApps = @(
     "puretext",
     "quickview",
     "powertoys",
+    "discord",
+    "betterdiscord",
     "irfanview"
     )
 
