@@ -1,3 +1,5 @@
+SetWorkingDir, %A_ScriptDir%
+
 ; Escape Closes Things!
 $Escape::                                               ; Long press (> 0.5 sec) on Esc closes window
     KeyWait, Escape, T0.5                               ; Wait no more than 0.5 sec for key release (also suppress auto-repeat)
@@ -20,3 +22,10 @@ Return
 !b::
   Run, Firefox.exe
 Return
+
+!r::
+	ScriptPath := A_ScriptDir "\RandomWallpaper.ps1"
+	Run, PowerShell.exe -Command "%ScriptPath%", A_ScriptDir, Hide
+  ; Run, Target , WorkingDir, Options, OutputVarPID
+
+	return

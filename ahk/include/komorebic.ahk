@@ -40,7 +40,7 @@ WatchConfiguration("enable")
 
 ; Mouse follows focus
 ToggleMouseFollowsFocus()
-FocusFollowsMouse("enable", "windows")
+; FocusFollowsMouse("enable", "windows")
 
 ; Ensure there are 5 workspaces created on monitor 0
 EnsureWorkspaces(0, 10)
@@ -112,13 +112,14 @@ FloatRule("title", "Control Panel")
 FloatRule("class", "TaskManagerWindow")
 FloatRule("class", "MsiDialogCloseClass")
 FloatRule("exe", "KensingtonWorks2.exe")
-FloatRule("exe", "msiexec.exe")
+; FloatRule("exe", "msiexec.exe")
 FloatRule("exe", "Wally.exe")
 FloatRule("exe", "wincompose.exe")
 FloatRule("exe", "1Password.exe")
 FloatRule("exe", "Wox.exe")
-FloatRule("exe", "ddm.exe")
-FloatRule("exe", "Zoom.exe")
+; FloatRule("exe", "ddm.exe")
+; FloatRule("exe", "Zoom.exe")
+FloatRule("exe", "QuickLook.exe")
 FloatRule("exe", "ApplicationFrameHost.exe")
 FloatRule("class", "Chrome_RenderWidgetHostHWND") ; GOG Electron invisible overlay
 FloatRule("class", "CEFCLIENT")
@@ -132,6 +133,7 @@ IdentifyTrayApplication("exe", "Ferdi.exe")
 IdentifyTrayApplication("exe", "Spotify.exe")
 IdentifyTrayApplication("exe", "GalaxyClient.exe")
 IdentifyTrayApplication("exe", "Zoom.exe")
+IdentifyTrayApplication("exe", "QuickLook.exe")
 IdentifyTrayApplication("exe", "KensingtonWorks2.exe")
 IdentifyTrayApplication("class", "ZPPTMainFrmWndClassEx")
 IdentifyTrayApplication("class", "ZPContentViewWndClass")
@@ -154,19 +156,19 @@ ManageRule("exe", "GalaxyClient.exe")
 ManageRule("exe", "Ferdi.exe")
 ManageRule("exe", "Tabby.exe")
 
-!,::
+!.::
 FocusMonitor(0)
 return
 
-!.::
+!,::
 FocusMonitor(1)
 return
 
-!^,::
+!^.::
 MoveToMonitor(0)
 return
 
-!^.::
+!^,::
 MoveToMonitor(1)
 return
 
@@ -237,7 +239,7 @@ Unstack()
 return
 
 ; Promote the focused window to the top of the tree, Alt + Shift + Enter
-!+Enter::
+!+'::
 Promote()
 return
 
@@ -263,12 +265,12 @@ return
 ; return
 
 ; Toggle the Monocle layout for the focused window, Alt + Shift + F
-!+f::
+!+m::
 ToggleMonocle()
 return
 
-; Toggle native maximize for the focused window, Alt + Shift + =
-!+m::
+; Toggle native maximize for the focused window, Alt + Shift + m
+!+Enter::
 ToggleMaximize()
 return
 
@@ -287,10 +289,29 @@ return
 Retile()
 return
 
+; Forcibly restart komorebi, Ctrl + Alt + Shift + R
+!^+r::
+WinGet, WindowList, List,,, Program Manager
+Loop, %WindowList%
+{
+  WinGetClass, Class, % "ahk_id " . WindowList%A_Index%
+  IF (Class <> "Shell_SecondaryTrayWnd" And Class <> "Shell_TrayWnd")
+    WinMinimize, % "ahk_id " . WindowList%A_Index%
+}
+RunWait, pskill.exe -t komorebi.exe, ,Hide,
+RunWait, C:\Users\eric\scoop\shims\komorebic.exe start, ,Hide,
+return
+
 ; Float the focused window, Alt + T
-!t::
+!+f::
 ToggleFloat()
 return
+
+; Toggle tiling on current workspace
+!+t::
+ToggleTiling()
+return
+
 
 ; Reload ~/komorebi.ahk, Alt + O
 !o::
