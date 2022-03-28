@@ -9,5 +9,5 @@ There are things you'll need to modify if you wish to make it work for you.  May
 Open Windows Powershell as Admin
 
 ```powershell
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ericreeves/WindowsBox/master/bootstrap/init.ps1'))
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ericreeves/WindowsBox/master/boxstarter/init.ps1'))
 ```
