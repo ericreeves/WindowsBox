@@ -1,4 +1,4 @@
-# Windows 10/11 Developer Machine Setup
+# Windows 10/11 Workstation Setup
 
 These are the scripts I use for bootstrapping and configuring my Windows workstation.
 
