@@ -1,4 +1,4 @@
-# Windows Development Workstation Setup
+# Windows Workstation Setup
 
 These are the scripts I use for bootstrapping/configuring my Windows workstation.
 
