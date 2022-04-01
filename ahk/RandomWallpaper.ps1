@@ -5,7 +5,6 @@
 #
 # And some more modifications by Eric Reeves
 #
-
 function Set-WallPaper {
 	<#
 		.SYNOPSIS

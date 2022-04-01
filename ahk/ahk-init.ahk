@@ -1,4 +1,5 @@
 ; Create shortcut to this file under: C:\Users\<YOURUSERNAME>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+; Win + r, shell:startup
 
 ; # Win (Windows logo key)
 ; ! Alt
@@ -13,15 +14,14 @@
 
 ; ------------------------------------------------------------------------------
 #SingleInstance Force
-#installKeybdHook
 #Persistent
 
 ; Start Komorebi if it's not running
 ; https://github.com/LGUG2Z/komorebi
-If !ProcessExist("komorebi.exe")
-{
-Run,  C:\Users\eric\scoop\shims\komorebic.exe start, ,Hide,
-}
+; If !ProcessExist("komorebi.exe")
+; {
+; RunWait, C:\Users\eric\.cargo\bin\komorebi.exe start, ,Hide,
+; }
 
 ; ------------------------------------------------------------------------------
 SetWorkingDir, %A_ScriptDir%
@@ -35,14 +35,11 @@ SetWorkingDir, %A_ScriptDir%
 ; App Launching and Closing Shortcuts
 #Include %A_ScriptDir%\include\AppShortcuts.ahk
 
-; Tab == Tab/Hyper
-#Include %A_ScriptDir%\include\TabModifier.ahk
-
-; Media Keys using Tab Hyper Key
+; Media Keys using Alt + Win
 #Include %A_ScriptDir%\include\Media.ahk
 
-; ------------------------------------------------------------------------------
-; Reload this script (Ctrl+Win+Alt+R)
-^!r::
+; Reload this script 
+; Ctrl + Win + Alt + r
+^#!r::
   Reload
 Return

@@ -260,6 +260,14 @@ IdentifyBorderOverflow(identifier, id) {
     Run, komorebic.exe identify-border-overflow %identifier% %id%, , Hide
 }
 
+IdentifyLayeredApplication(identifier, id) {
+    Run, komorebic.exe identify-layered-application %identifier% %id%, , Hide
+}
+
+IdentifyObjectNameChangeApplication(identifier, id) {
+    Run, komorebic.exe identify-object-name-change-application %identifier% %id%, , Hide
+}
+
 FocusFollowsMouse(boolean_state, implementation) {
     Run, komorebic.exe focus-follows-mouse %boolean_state% --implementation %implementation%, , Hide
 }

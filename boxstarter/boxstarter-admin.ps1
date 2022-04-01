@@ -46,7 +46,6 @@ $ChocoApps = @(
     "vlc",
     "sysinternals",
     "hwinfo",
-    "notepadplusplus.install",
     "nuget.commandline",
     "NugetPackageExplorer",
     "rocolatey",
@@ -63,6 +62,7 @@ $ChocoApps = @(
     "powertoys",
     "discord",
     "betterdiscord",
+    "sudo",
     "irfanview"
     )
 
@@ -80,6 +80,13 @@ $ChocoPin = @(
     "Firefox",
     "vscode",
     "ferdi"
+)
+
+#
+# WinGet Packages to Install
+#
+$WingetApps = @(
+    "Notepads App"
 )
 
 #-------------------------------------------------------------------------------
@@ -264,6 +271,15 @@ foreach ($app in $ChocoAppsIgnoreChecksum) {
 Write-Banner -Text "Pinning Self-Updating Chocolatey Packages"
 foreach ($pinapp in $ChocoPin) {
     choco pin add -n="$pinapp"
+}
+
+#-------------------------------------------------------------------------------
+#--- Winget Apps ---
+#-------------------------------------------------------------------------------
+Write-Banner -Text "Installing Winget Packages"
+foreach ($app in $WingetApps) {
+
+    winget install --accept-package-agreements --accept-source-agreements "$app"
 }
 
 #-------------------------------------------------------------------------------

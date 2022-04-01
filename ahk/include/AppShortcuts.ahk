@@ -11,21 +11,23 @@ Return
 
 ; Alt-W and Alt-Q Close Windows
 !w::WinClose A
-!q::WinClose A
+!q:: Send !{F4}
 
 ; Application Shortcuts
-!Enter::
+!t::
   Run, "C:\Program Files\Alacritty\alacritty.exe"
-;-e wsl.exe --cd ~ -- /usr/bin/zsh -c "/home/linuxbrew/.linuxbrew/bin/tmux attach || tmux"
+Return
+
+; Application Shortcuts
+#t::
+  Run, wt.exe
 Return
 
 !b::
-  Run, Firefox.exe
+  Run, msedge.exe
 Return
 
 !r::
 	ScriptPath := A_ScriptDir "\RandomWallpaper.ps1"
 	Run, PowerShell.exe -Command "%ScriptPath%", A_ScriptDir, Hide
-  ; Run, Target , WorkingDir, Options, OutputVarPID
-
 	return

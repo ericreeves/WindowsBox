@@ -1,24 +1,25 @@
-; Media_Stop	Stop
-!+^h::
+; Media Player Keyboard Commands
+!#h::
   Send, {Media_Prev}
 Return
 
-!+^Space::
+!#Space::
   Send, {Media_Play_Pause}
 Return
 
-!+^l::
+!#l::
   Send, {Media_Next}
 Return
 
-!+^k::
+!#k::
   Send, {Volume_Up}
 Return
 
-!+^j::
+!#j::
   Send, {Volume_Down}
 Return
 
-!+^m::
+!#m::
   Send, {Volume_Mute}
 Return
+
