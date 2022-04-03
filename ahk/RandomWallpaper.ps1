@@ -18,7 +18,6 @@ function Get-Random-Image {
 # Set Wallpaper Only on 2nd Monitor
 # Get-Monitor | Select-Object -skip 1 | Select-Object -First 1 | Set-WallPaper -Path C:\Wallpapers\nature.jpg
 
-#$WallPaper = Get-Random-Image -WallPaperPath $WallPaperPath
 $WallPaper = Get-Random-Image -WallPaperPath $WallPaperPath
 $WallPaper | Out-File "c:\Users\eric\Pictures\Wallpaper\current-wallpaper.txt"
 Get-Monitor | Set-WallPaper -Path $WallPaper
