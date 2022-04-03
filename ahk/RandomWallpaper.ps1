@@ -1,12 +1,10 @@
 #
-# Set-Wallpaper originally by Jose Espisita: https://www.joseespitia.com/2017/09/15/set-wallpaper-powershell-function/
+# Uses https://github.com/federico-paolillo/set-wallpaper
 #
-# With some modifications by Joseph McEvoy: https://github.com/JosephMcEvoy/PowerShell/blob/master/Misc/randomWallpaper.ps1
-#
-# And some more modifications by Eric Reeves
+# Author: Eric Reeves (eric@alluvium.com)
 #
 
-param ($WallPaperPath)
+param ([string]$WallPaperPath)
 
 function Get-Random-Image {
 	param (
