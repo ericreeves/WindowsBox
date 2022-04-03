@@ -4,7 +4,7 @@
 
 ; Komorebic Library
 SetWorkingDir, %A_ScriptDir%
-#Include %A_ScriptDir%\include\komorebic.lib.ahk
+#Include %A_ScriptDir%\include\komorebi.lib.ahk
 
 ; ---------------------------------------------------------------------------------
 ; Workspace and Monitor Creation and Configuration

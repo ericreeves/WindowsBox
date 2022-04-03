@@ -8,16 +8,16 @@
 
 ; Komorebic Library
 SetWorkingDir, %A_ScriptDir%
-#Include %A_ScriptDir%\include\komorebic.lib.ahk
+#Include %A_ScriptDir%\include\komorebi.lib.ahk
 
 ; Workspace Configuration
-#Include %A_ScriptDir%\include\komorebic.workspaces.ahk
+#Include %A_ScriptDir%\include\komorebi.workspaces.ahk
 
 ; Generated Application Rules
 #Include %A_ScriptDir%\include\komorebi.generated.ahk
 
 ; Keyboard Commands
-#Include %A_ScriptDir%\include\komorebic.keyboardshortcuts.ahk
+#Include %A_ScriptDir%\include\komorebi.keyboardshortcuts.ahk
 
 ; ---------------------------------------------------------------------------------
 ; Behavior Configuration
