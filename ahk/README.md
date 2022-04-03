@@ -1,11 +1,8 @@
 # Keyboard Configs For Windows
 
 Eric's Fork of [jeebak/keyboard-windows](https://github.com/jeebak/keyboard-windows).
-- Moved things I do not use to ahk/include/archive
-- Changed some stuff
-- Added bits to start [komorebi](https://github.com/LGUG2Z/komorebi)
-- Dropped TouchCursor.ahk in favor of running the real [TouchCursor](http://martin-stone.github.io/touchcursor/overview.html)
-  - I couldn't figure out how to eliminate the lagginess/sloppiness of the Spacebar using AHK.
+- Based around [komorebi](https://github.com/LGUG2Z/komorebi)
+  - Configurations split up into multiple includes  
 
 # Original README
 

@@ -161,21 +161,21 @@ return
 
 ; Switch to monitor
 ; Alt + [,.]
-!.::
+!,::
 FocusMonitor(0)
 return
 
-!,::
+!.::
 FocusMonitor(1)
 return
 
 ; Move window to monitor
 ; Alt + Ctrl + [,.]
-!^.::
+!^,::
 MoveToMonitor(0)
 return
 
-!^,::
+!^.::
 MoveToMonitor(1)
 return
 

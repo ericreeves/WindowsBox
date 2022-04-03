@@ -1,10 +1,10 @@
+;
 ; Media Player Keyboard Commands
+;
+; ! Alt + Win + <key>
+;
 !#h::
   Send, {Media_Prev}
-Return
-
-!#Space::
-  Send, {Media_Play_Pause}
 Return
 
 !#l::
@@ -17,6 +17,10 @@ Return
 
 !#j::
   Send, {Volume_Down}
+Return
+
+!#Space::
+  Send, {Media_Play_Pause}
 Return
 
 !#m::

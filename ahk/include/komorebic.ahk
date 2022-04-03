@@ -13,11 +13,11 @@ SetWorkingDir, %A_ScriptDir%
 ; Workspace Configuration
 #Include %A_ScriptDir%\include\komorebic.workspaces.ahk
 
-; Application Rules
-#Include %A_ScriptDir%\include\komorebic.rules.ahk
+; Generated Application Rules
+#Include %A_ScriptDir%\include\komorebi.generated.ahk
 
 ; Keyboard Commands
-#Include %A_ScriptDir%\include\komorebic.keys.ahk
+#Include %A_ScriptDir%\include\komorebic.keyboardshortcuts.ahk
 
 ; ---------------------------------------------------------------------------------
 ; Behavior Configuration

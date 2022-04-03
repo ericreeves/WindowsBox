@@ -204,6 +204,23 @@ Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage -ErrorAction SilentlyCo
 Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage -ErrorAction SilentlyContinue
 
 #-------------------------------------------------------------------------------
+#--- Powershell Settings ---
+#-------------------------------------------------------------------------------
+Write-Banner -Text "Configuring Powershell Settings"
+
+# Trust PSGallery
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+
+# Update Powershellget
+Install-Module PowershellGet -Force -AllowClobber   
+
+# Install FP.SetWallpaper - https://github.com/federico-paolillo/set-wallpaper
+Install-Module -Name FP.SetWallpaper -AllowPrerelease –AcceptLicense
+
+# Update Powershell
+winget install --id Microsoft.Powershell --source winget
+
+#-------------------------------------------------------------------------------
 #--- Windows Settings ---
 #-------------------------------------------------------------------------------
 
