@@ -27,7 +27,7 @@
 SetWorkingDir, %A_ScriptDir%
 
 ; Komorebi
-#Include %A_ScriptDir%\include\komorebic.ahk
+#Include %A_ScriptDir%\include\komorebi.ahk
 
 ; Helper Functions
 #Include %A_ScriptDir%\include\Helpers.ahk
