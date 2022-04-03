@@ -69,18 +69,18 @@ WorkspaceName(0, 4, "Phone")
 ; WorkspaceRule("title", "Your Phone", 0, 4) 
 
 ; Workspace 6
-WorkspaceName(0, 5, "Social")
+WorkspaceName(0, 5, "6")
 ; WorkspaceRule("exe", "Discord.exe", 0, 5) 
 
 ; Workspace 7
-WorkspaceName(0, 6, "Workspace 7")
+WorkspaceName(0, 6, "7")
 
 ; Workspace 8
 WorkspaceName(0, 7, "Music")
 ; WorkspaceRule("exe", "Spotify.exe", 0, 7) 
 
 ; Workspace 9
-WorkspaceName(0, 8, "Workspace 9")
+WorkspaceName(0, 8, "9")
 
 ; Workspace 10
-WorkspaceName(0, 9, "Workspace 10")
+WorkspaceName(0, 9, "10")
