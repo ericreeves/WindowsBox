@@ -1,4 +1,5 @@
-ProcessExist(Name){
+ProcessExists(Name)
+{
 	Process,Exist,%Name%
 	return Errorlevel
 }

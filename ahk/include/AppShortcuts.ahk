@@ -15,19 +15,43 @@ SetWorkingDir, %A_ScriptDir%
 
 ; Application Shortcuts
 !t::
-  Run, "C:\Program Files\Alacritty\alacritty.exe"
+	Run, "C:\Program Files\Alacritty\alacritty.exe"
 Return
 
 ; Application Shortcuts
 #t::
-  Run, wt.exe
+	Run, wt.exe
 Return
 
 !b::
-  Run, msedge.exe
+	Run, msedge.exe
+Return
+
+; Open komorebi log viewer window
+!#^l::
+	Run, alacritty.exe -o window.opacity=0.8 -o font.size=8 -t "Komorebi Logs" -e komorebic.exe log
 Return
 
 !r::
-	ScriptPath := A_ScriptDir "\RandomWallpaper.ps1"
+	ScriptPath := A_ScriptDir "\scripts\RandomWallpaper.ps1"
 	Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
-	return
+return
+
+; Reload this script 
+; Ctrl + Win + Alt + r
+^#!r::
+	Reload
+Return
+
+; Force-Restart Komorebi and AHK
+^#!x::
+	ScriptPath := A_ScriptDir "\scripts\Force-Restart-Komorebi.ps1"
+	Run, PowerShell.exe -Command "%ScriptPath%", A_ScriptDir, Hide
+Return
+
+; In Elecom MouseAssistant: 
+;   - bind your "toggle track scroll" button to RAlt
+;   - bind your "middle click" button to RCtrl
+; Bind RAlt and RCtrl to XButton1/XButton2 for TrackBallScroll.exe
+RAlt::XButton1
+RCtrl::XButton2

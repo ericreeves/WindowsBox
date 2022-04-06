@@ -2,8 +2,13 @@
 ; To use this file, add the line below to the top of your komorebi.ahk configuration file
 ; #Include %A_ScriptDir%\komorebi.generated.ahk
 
-; AhkWindowSpy
+; AutoHotKey
+; If you have disabled minimize/close to tray for this application, you can delete/comment out the next line
+Run, komorebic.exe identify-tray-application exe AutoHotkey.exe, , Hide
+; Target AutoHotKey's Window Spy pop-up
 Run, komorebic.exe float-rule title Window Spy, , Hide
+; My AHK Script
+Run, komorebic.exe float-rule title ahk-init.ahk, , Hide
 
 ; Beeper
 Run, komorebic.exe identify-border-overflow-application exe Beeper.exe, , Hide
@@ -26,12 +31,18 @@ Run, komorebic.exe identify-tray-application exe chrome.exe, , Hide
 Run, komorebic.exe identify-object-name-change-application exe idea64.exe, , Hide
 ; If you have disabled minimize/close to tray for this application, you can delete/comment out the next line
 Run, komorebic.exe identify-tray-application exe idea64.exe, , Hide
+; Targets JetBrains IDE popups and floating windows
 Run, komorebic.exe float-rule class SunAwtDialog, , Hide
 
 ; Microsoft Excel
 Run, komorebic.exe identify-border-overflow-application exe EXCEL.EXE, , Hide
 Run, komorebic.exe identify-layered-application exe EXCEL.EXE, , Hide
+; Targets a hidden window spawned by Microsoft Office applications
 Run, komorebic.exe float-rule class _WwB, , Hide
+
+; Microsoft Teams
+; Target Teams pop-up notification windows
+Run, komorebic.exe float-rule title Microsoft Teams Notifications, , Hide
 
 ; Microsoft Word
 Run, komorebic.exe identify-border-overflow-application exe WINWORD.EXE, , Hide
@@ -41,6 +52,10 @@ Run, komorebic.exe identify-layered-application exe WINWORD.EXE, , Hide
 Run, komorebic.exe identify-object-name-change-application exe firefox.exe, , Hide
 ; If you have disabled minimize/close to tray for this application, you can delete/comment out the next line
 Run, komorebic.exe identify-tray-application exe firefox.exe, , Hide
+
+; Obsidian
+Run, komorebic.exe identify-border-overflow-application exe Obsidian.exe, , Hide
+Run, komorebic.exe manage-rule exe Obsidian.exe, , Hide
 
 ; PyCharm
 Run, komorebic.exe identify-object-name-change-application exe pycharm64.exe, , Hide

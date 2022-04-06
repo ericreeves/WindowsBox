@@ -160,22 +160,40 @@ TogglePause()
 return
 
 ; Switch to monitor
-; Alt + [,.]
-!,::
+; Alt + [sa]
+!s::
 FocusMonitor(0)
 return
 
+!a::
+FocusMonitor(1)
+return
+
+; Alt + [,.]
 !.::
+FocusMonitor(0)
+return
+
+!,::
 FocusMonitor(1)
 return
 
 ; Move window to monitor
 ; Alt + Ctrl + [,.]
-!^,::
+!^.::
 MoveToMonitor(0)
 return
 
-!^.::
+!^,::
+MoveToMonitor(1)
+return
+
+; Alt + Ctrl + [sa]
+!^s::
+MoveToMonitor(0)
+return
+
+!^a::
 MoveToMonitor(1)
 return
 

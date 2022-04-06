@@ -15,16 +15,14 @@
 ; ------------------------------------------------------------------------------
 #SingleInstance Force
 #Persistent
-
-; Start Komorebi if it's not running
-; https://github.com/LGUG2Z/komorebi
-; If !ProcessExist("komorebi.exe")
-; {
-; RunWait, C:\Users\eric\.cargo\bin\komorebi.exe start, ,Hide,
-; }
+#NoEnv                                    ; Recommended for performance and compatibility with future AutoHotkey releases.
+SetWorkingDir, %A_ScriptDir%
 
 ; ------------------------------------------------------------------------------
-SetWorkingDir, %A_ScriptDir%
+; Start komorebi
+; ------------------------------------------------------------------------------
+RunWait, PowerShell.exe -ExecutionPolicy Bypass -File "%A_ScriptDir%\scripts\Start-Komorebi.ps1", ,Hide,
+; ------------------------------------------------------------------------------
 
 ; Komorebi
 #Include %A_ScriptDir%\include\komorebi.ahk
@@ -38,8 +36,6 @@ SetWorkingDir, %A_ScriptDir%
 ; Media Keys using Alt + Win
 #Include %A_ScriptDir%\include\Media.ahk
 
-; Reload this script 
-; Ctrl + Win + Alt + r
-^#!r::
-  Reload
-Return
+; Helper Functions
+#Include %A_ScriptDir%\include\Helpers.ahk
+

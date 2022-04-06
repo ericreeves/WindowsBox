@@ -63,6 +63,8 @@ $ChocoApps = @(
     "discord",
     "betterdiscord",
     "sudo",
+    "rustup.install",
+    "just",
     "irfanview"
     )
 
