@@ -33,9 +33,9 @@ Return
 Return
 
 !r::
-	ScriptPath := A_ScriptDir "\scripts\RandomWallpaper.ps1"
+	ScriptPath := A_ScriptDir "\scripts\Random-Wallpaper.ps1"
 	Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
-return
+Return
 
 ; Reload this script 
 ; Ctrl + Win + Alt + r
@@ -43,9 +43,27 @@ return
 	Reload
 Return
 
+
+; Minimize All Windows
+^#!m::
+	WinGet, WindowList, List,,, Program Manager
+	Loop, %WindowList%
+	{
+		WinGetClass, Class, % "ahk_id " . WindowList%A_Index%
+		IF (Class <> "Shell_SecondaryTrayWnd" And Class <> "Shell_TrayWnd")
+			WinMinimize, % "ahk_id " . WindowList%A_Index%
+	}
+Return
+
+; Force-Restart Yasb
+^#!y::
+	ScriptPath := A_ScriptDir "\scripts\Restart-Yasb.ps1"
+	Run, PowerShell.exe -Command "%ScriptPath%", A_ScriptDir, Hide
+Return
+
 ; Force-Restart Komorebi and AHK
-^#!x::
-	ScriptPath := A_ScriptDir "\scripts\Force-Restart-Komorebi.ps1"
+^#!k::
+	ScriptPath := A_ScriptDir "\scripts\Restart-Komorebi.ps1"
 	Run, PowerShell.exe -Command "%ScriptPath%", A_ScriptDir, Hide
 Return
 

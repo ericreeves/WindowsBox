@@ -39,3 +39,4 @@ RunWait, PowerShell.exe -ExecutionPolicy Bypass -File "%A_ScriptDir%\scripts\Sta
 ; Helper Functions
 #Include %A_ScriptDir%\include\Helpers.ahk
 
+MsgBox % "Komorebi Started!"

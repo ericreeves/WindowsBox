@@ -1,11 +1,14 @@
 . "$PSScriptRoot\Common.ps1"
 
-Write-Output "--- Current komorebi Processes"
-Get-Process-Command -Name "komorebi"
+Write-Output "--- Current yasb Processes"
+Get-Process-Command -Name "pythonw3.9"
 
 Write-Output "--- Killing yasb"
 Get-Process -Name "pythonw3.9" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
 Wait-Process -Name "pythonw3.9" -ErrorAction SilentlyContinue
+
+Write-Output "--- Current komorebi Processes"
+Get-Process-Command -Name "komorebi"
 
 Write-Output "--- Killing komorebi"
 Get-Process -Name "komorebi" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
