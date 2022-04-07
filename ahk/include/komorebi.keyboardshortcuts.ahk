@@ -160,42 +160,27 @@ TogglePause()
 return
 
 ; Switch to monitor
-; Alt + [sa]
-!s::
+; Win + [12]
+#2::
 FocusMonitor(0)
 return
 
-!a::
-FocusMonitor(1)
-return
-
-; Alt + [,.]
-!.::
-FocusMonitor(0)
-return
-
-!,::
+#1::
 FocusMonitor(1)
 return
 
 ; Move window to monitor
-; Alt + Ctrl + [,.]
-!^.::
+; Win + Ctrl + [12]
+#^2::
 MoveToMonitor(0)
 return
 
-!^,::
+#^1::
 MoveToMonitor(1)
 return
 
-; Alt + Ctrl + [sa]
-!^s::
-MoveToMonitor(0)
-return
-
-!^a::
-MoveToMonitor(1)
-return
+    ; send-to-monitor-workspace
+    ; focus-monitor-workspace
 
 ; Switch to workspace
 ; Alt + #
