@@ -21,22 +21,21 @@ SetWorkingDir, %A_ScriptDir%
 ; ------------------------------------------------------------------------------
 ; Start komorebi
 ; ------------------------------------------------------------------------------
-RunWait, PowerShell.exe -ExecutionPolicy Bypass -File "%A_ScriptDir%\scripts\Start-Komorebi.ps1", ,Hide,
+Run, PowerShell.exe -ExecutionPolicy Bypass -File "%A_ScriptDir%\scripts\Start-Komorebi.ps1", ,Hide,
 ; ------------------------------------------------------------------------------
+
+Sleep, 5000
+
+MsgBox % "Komorebi Started!"
+
+; Set Working Directory for All Subsequent Includes
+#Include %A_ScriptDir%
 
 ; Komorebi
 #Include %A_ScriptDir%\include\komorebi.ahk
-
-; Helper Functions
-#Include %A_ScriptDir%\include\Helpers.ahk
 
 ; App Launching and Closing Shortcuts
 #Include %A_ScriptDir%\include\AppShortcuts.ahk
 
 ; Media Keys using Alt + Win
 #Include %A_ScriptDir%\include\Media.ahk
-
-; Helper Functions
-#Include %A_ScriptDir%\include\Helpers.ahk
-
-MsgBox % "Komorebi Started!"
