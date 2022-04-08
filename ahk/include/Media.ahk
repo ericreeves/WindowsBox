@@ -36,13 +36,13 @@ Progress Hide %Volume_ProgressbarOpts%,,Volume,,Tahoma
 
 !^WheelDown::
     ChangeVolume("-")
-    gosub, Volume_Show_OSD
+    ; gosub, Volume_Show_OSD
 return
 return
 
 !^WheelUp::
     ChangeVolume("+")
-    gosub, Volume_Show_OSD
+    ; gosub, Volume_Show_OSD
 return
 return
 

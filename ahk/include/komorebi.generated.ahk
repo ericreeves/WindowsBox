@@ -23,6 +23,10 @@ Run, komorebic.exe identify-border-overflow-application exe Discord.exe, , Hide
 ; If you have disabled minimize/close to tray for this application, you can delete/comment out the next line
 Run, komorebic.exe identify-tray-application exe Discord.exe, , Hide
 
+; Elecom Mouse Assistant 5
+; If you have disabled minimize/close to tray for this application, you can delete/comment out the next line
+Run, komorebic.exe identify-tray-application exe ElcMousePanelApp.exe, , Hide
+
 ; Google Chrome
 ; If you have disabled minimize/close to tray for this application, you can delete/comment out the next line
 Run, komorebic.exe identify-tray-application exe chrome.exe, , Hide
@@ -88,3 +92,13 @@ Run, komorebic.exe float-rule exe tcconfig.exe, , Hide
 ; TranslucentTB
 ; If you have disabled minimize/close to tray for this application, you can delete/comment out the next line
 Run, komorebic.exe identify-tray-application exe TranslucentTB.exe, , Hide
+
+; Zoom
+; If you have disabled minimize/close to tray for this application, you can delete/comment out the next line
+Run, komorebic.exe identify-tray-application exe Zoom.exe, , Hide
+Run, komorebic.exe float-rule class ZPPTMainFrmWndClassEx, , Hide
+Run, komorebic.exe float-rule class zJoinAudioWndClass, , Hide
+Run, komorebic.exe float-rule class disabledZPContentViewWndClass, , Hide
+Run, komorebic.exe float-rule class ZPFTEWndClass, , Hide
+Run, komorebic.exe float-rule class InviteToJoinWndCls, , Hide
+Run, komorebic.exe float-rule title Zoom Cloud Meetings, , Hide
