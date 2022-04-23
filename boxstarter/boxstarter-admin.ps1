@@ -217,7 +217,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Install-Module PowershellGet -Force -AllowClobber   
 
 # Install FP.SetWallpaper - https://github.com/federico-paolillo/set-wallpaper
-Install-Module -Name FP.SetWallpaper -AllowPrerelease –AcceptLicense
+Install-Module -Name FP.SetWallpaper -AcceptLicense
 
 # Update Powershell
 winget install --id Microsoft.Powershell --source winget
@@ -331,19 +331,19 @@ Remove-Item C:\vc_red.*
 #-------------------------------------------------------------------------------
 #--- Install Ubuntu in WSL if Needed
 #-------------------------------------------------------------------------------
-if ( ! (wsl -l | Where-Object {$_.Replace("`0","") -match '^Ubuntu'})) { 
-    Write-Banner -Text "Enabling and Installing WSL"
-    Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
-    choco upgrade -y wsl
-    wsl --set-default-version 2
-    wsl --install -d Ubuntu
-} else {
-    Write-Banner -Text "WSL (Ubuntu) Already Installed"
-}
+# if ( ! (wsl -l | Where-Object {$_.Replace("`0","") -match '^Ubuntu'})) { 
+#     Write-Banner -Text "Enabling and Installing WSL"
+#     Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
+#     choco upgrade -y wsl
+#     wsl --set-default-version 2
+#     wsl --install -d Ubuntu
+# } else {
+#     Write-Banner -Text "WSL (Ubuntu) Already Installed"
+# }
 
 #-------------------------------------------------------------------------------
 #--- Done! Reboot!
 #-------------------------------------------------------------------------------
 Write-Host "================================================================================" -foregroundcolor green
-Read-Host -Prompt "Setup is Complete! Press [ENTER] to Reboot"
-Restart-Computer
+# Read-Host -Prompt "Setup is Complete! Press [ENTER] to Reboot"
+# Restart-Computer

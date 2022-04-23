@@ -8,10 +8,10 @@ Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
 #-------------------------------------------------------------------------------
 scoop bucket add extras
 $ScoopApps = @(
-    "komorebi",
+#    "komorebi",
     "touchcursor",
-    "translucenttb",
-    "roundedtb"
+    "translucenttb"
+#    "roundedtb"
 )
 
 foreach ($app in $ScoopApps) {
