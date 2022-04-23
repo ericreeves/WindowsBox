@@ -6,33 +6,14 @@
 ; ^ Control
 ; + Shift
 ; & An ampersand may be used between any two keys or mouse buttons to combine them into a custom hotkey.
-
-; https://github.com/ahkscript/awesome-AutoHotkey
-; https://autohotkey.com/docs/KeyList.htm
-; ------------------------------------------------------------------------------
-; https://stackoverflow.com/questions/15706534/hotkey-to-restart-autohotkey-script
-
 ; ------------------------------------------------------------------------------
 #SingleInstance Force
 #Persistent
 #NoEnv                                    ; Recommended for performance and compatibility with future AutoHotkey releases.
 SetWorkingDir, %A_ScriptDir%
 
-; ------------------------------------------------------------------------------
-; Start komorebi
-; ------------------------------------------------------------------------------
-Run, PowerShell.exe -ExecutionPolicy Bypass -File "%A_ScriptDir%\scripts\Start-Komorebi.ps1", ,Hide,
-; ------------------------------------------------------------------------------
-
-Sleep, 5000
-
-MsgBox % "Komorebi Started!"
-
 ; Set Working Directory for All Subsequent Includes
 #Include %A_ScriptDir%
-
-; Komorebi
-#Include %A_ScriptDir%\include\komorebi.ahk
 
 ; App Launching and Closing Shortcuts
 #Include %A_ScriptDir%\include\AppShortcuts.ahk
