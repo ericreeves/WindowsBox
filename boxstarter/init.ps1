@@ -23,10 +23,10 @@ choco install boxstarter.bootstrapper
 #
 # Run boxstarter-admin
 #
-Install-BoxstarterPackage -PackageName https://gist.githubusercontent.com/ericreeves/4b9e577539e4e85265604ff48bb19d05/raw/e7a293bcdb3472020ec77a6160fd082c94c27289/boxstarter-admin.ps1
+Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/ericreeves/WindowsBox/master/boxstarter/boxstarter-admin.ps1
 
 #
 # Run boxstarter-user
 #
 $Cred = Get-Credential coldfire\eric
-Install-BoxstarterPackage -PackageName  https://gist.githubusercontent.com/ericreeves/4b9e577539e4e85265604ff48bb19d05/raw/753ccc407985083f3050215cc846ddb8a014a1ee/boxstarter-user.ps1 -Credential $cred
+Install-BoxstarterPackage -PackageName  https://raw.githubusercontent.com/ericreeves/WindowsBox/master/boxstarter/boxstarter-user.ps1 -Credential $cred
