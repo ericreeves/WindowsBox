@@ -1,3 +1,9 @@
+; # Win (Windows logo key)
+; ! Alt
+; ^ Control
+; + Shift
+; & An ampersand may be used between any two keys or mouse buttons to combine them into a custom hotkey.
+
 SetWorkingDir, %A_ScriptDir%
 
 !m::
@@ -14,7 +20,7 @@ return
 Return
 
 ; Application Shortcuts
-!g::
+!+t::
 	Run, wt.exe
 Return
 
@@ -49,5 +55,54 @@ Return
 ;   - bind your "toggle track scroll" button to RAlt
 ;   - bind your "middle click" button to RCtrl
 ; Bind RAlt and RCtrl to XButton1/XButton2 for TrackBallScroll.exe
-RAlt::XButton1
-RCtrl::XButton2
+; RAlt::XButton1
+; RCtrl::XButton2
+
+
+; Map the Japanese keys to F1-F4 so that you can enter them in the Elecom MouseAssist program.
+
+; F1::
+; {
+; Send {vk1C} ; Convert
+; return
+; }
+
+; F2::
+; {
+; Send {vk1D} ; No Conversion
+; return
+; }
+
+; F3::
+; {
+; Send {vk19} ; Half-width/Full-width
+; return
+; }
+
+; F4::
+; {
+; Send {vk15} ; Katakana/Hiragana
+; return
+; }
+
+; These macros trigger when Autohotkey detects the Elecom MouseAssist program sending the Japanese keys.
+
+; 'Convert' Key
+; Elecom Button 8 - Track Scroll
+vk1C::XButton2
+
+; 'No Convert' Key
+; Elecom Buttom 1 - Middle Click
+vk1D::XButton1
+
+; vk19::
+; {
+; ToolTip, Half-width/Full-width
+; return
+; }
+
+; vk15::
+; {
+; ToolTip, Katakana/Hiragana
+; return
+; }
