@@ -11,5 +11,5 @@ Sleep-Sleep 2
 Write-Output "--------------------------------------------------"
 Write-Output " Starting yasb "
 Write-Output "--------------------------------------------------"
-Start-Process -FilePath "$Python_Bin_Folder\pythonw3.exe" -WorkingDirectory "$Yasb_Folder" -ArgumentList "src/main.py" -WindowStyle Hidden
-Wait-For-Process -Name "pythonw3.9"
+Start-Process -FilePath "$Python_Bin_Folder\pythonw.exe" -WorkingDirectory "$Yasb_Folder" -ArgumentList "src/main.py" -WindowStyle Hidden
+Wait-For-Process -Name "pythonw"

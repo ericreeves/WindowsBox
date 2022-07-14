@@ -1,11 +1,11 @@
 . "$PSScriptRoot\Common.ps1"
 
-Write-Output "--- Current yasb Processes"
-Get-Process-Command -Name "pythonw3.9"
+# Write-Output "--- Current yasb Processes"
+# Get-Process-Command -Name "pythonw"
 
-Write-Output "--- Killing yasb"
-Get-Process -Name "pythonw3.9" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
-Wait-Process -Name "pythonw3.9" -ErrorAction SilentlyContinue
+# Write-Output "--- Killing yasb"
+# Get-Process -Name "pythonw" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+# Wait-Process -Name "pythonw" -ErrorAction SilentlyContinue
 
 Write-Output "--- Current komorebi Processes"
 Get-Process-Command -Name "komorebi"
@@ -20,5 +20,5 @@ Invoke-Item "$AHK_Folder\$AHK_Filename"
 Wait-For-Process -Name "komorebi"
 Get-Process-Command -Name "komorebi"
 
-Wait-For-Process -Name "pythonw3.9"
-Get-Process-Command -Name "pythonw3.9"
+# Wait-For-Process -Name "pythonw"
+# Get-Process-Command -Name "pythonw"

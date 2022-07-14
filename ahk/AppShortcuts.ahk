@@ -15,12 +15,12 @@ return
 !q:: Send !{F4}
 
 ; Application Shortcuts
-!t::
-	Run, "C:\Program Files\Alacritty\alacritty.exe"
-Return
+; !t::
+; 	Run, "C:\Program Files\Alacritty\alacritty.exe"
+; Return
 
 ; Application Shortcuts
-!+t::
+!t::
 	Run, wt.exe
 Return
 
@@ -30,7 +30,7 @@ Return
 
 !r::
 	ScriptPath := A_ScriptDir "\scripts\Random-Wallpaper.ps1"
-	Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper\5120x1440", A_ScriptDir, Hide
+	Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
 Return
 
 ; Reload this script 

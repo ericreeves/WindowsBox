@@ -2,11 +2,11 @@
 # Configuration
 # ----------------------------------------------------------------------------
 
-$AHK_Folder = "C:\Users\eric\Rice\windowsbox\ahk"
-$AHK_Filename = "ahk-init.ahk"
-$Komorebi_Bin_Folder = "C:\Users\eric\.cargo\bin"
-$Python_Bin_Folder = "C:\Users\eric\AppData\Local\Microsoft\WindowsApps"
-$Yasb_Folder = "C:\Users\eric\Rice\yasb"
+$AHK_Folder = "C:\Users\Eric Reeves\Config\WindowsBox\ahk"
+$AHK_Filename = "komorebi.ahk"
+$Komorebi_Bin_Folder = "C:\Users\Eric Reeves\Bin"
+$Python_Bin_Folder = "C:\Users\Eric Reeves\AppData\Local\Programs\Python\Python39"
+$Yasb_Folder = "C:\Users\Eric Reeves\Config\WindowsBox\yasb"
 
 function Get-Process-Command
 {

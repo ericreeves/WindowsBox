@@ -1,1 +1,5 @@
-/ahk/WinPos*.txt
+ahk/WinPos*.txt
+ahk/komorebi.log
+ahk/komorebi.sock
+ahk/komorebic.sock
+ahk/komorebi.hwnd.json
