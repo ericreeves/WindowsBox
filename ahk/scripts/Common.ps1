@@ -2,11 +2,73 @@
 # Configuration
 # ----------------------------------------------------------------------------
 
-$AHK_Folder = "C:\Users\eric\Rice\windowsbox\ahk"
-$AHK_Filename = "ahk-init.ahk"
-$Komorebi_Bin_Folder = "C:\Users\eric\.cargo\bin"
-$Python_Bin_Folder = "C:\Users\eric\AppData\Local\Microsoft\WindowsApps"
-$Yasb_Folder = "C:\Users\eric\Rice\yasb"
+$AHK_Folder = "C:\Users\eric\Config\WindowsBox\ahk"
+$AHK_Filename = "komorebi.ahk"
+$AHK_Shortcuts_Filename = "AppShortcuts.ahk"
+$Komorebi_Bin_Folder = "C:\Users\eric\scoop\shims"
+$Python_Bin_Folder = "C:\Users\eric\AppData\Local\Microsoft\WindowsApps\"
+$Yasb_Folder = "C:\Users\eric\Config\yasb"
+
+Function Execute-Command ($FilePath, $ArgumentList, $WorkingDirectory, $Title)
+{
+  Try {
+    $pinfo = New-Object System.Diagnostics.ProcessStartInfo
+    $pinfo.FileName = $FilePath
+    $pinfo.RedirectStandardError = $true
+    $pinfo.RedirectStandardOutput = $true
+    $pinfo.WorkingDirectory = $WorkingDirectory
+    $pinfo.UseShellExecute = $false
+    $pinfo.Arguments = $ArgumentList
+    $p = New-Object System.Diagnostics.Process
+    $p.StartInfo = $pinfo
+    if ($p.Start())
+    {
+        $StreamReader = $p.StandardOutput
+        while (-not $StreamReader.EndOfStream)
+        {
+            $line = $StreamReader.ReadLine()
+            write-host $line
+        }
+        $ps.WaitForExit()
+    
+        if ($ps.ExitCode -eq 0)
+        {
+            write-host "Command Successful"
+        }
+        else
+        {
+            write-host "Error Executing Command"
+        }
+    }
+    else
+    {
+        write-host "Unable to Start"
+    }
+    # [pscustomobject]@{
+    #     command = $Title
+    #     stdout = $p.StandardOutput.ReadToEnd()
+    #     stderr = $p.StandardError.ReadToEnd()
+    #     ExitCode = $p.ExitCode
+    # }
+    $p.WaitForExit()
+    # $p.StandardOutput.ReadToEnd();
+    Write-Output ""
+  }
+  Catch {
+     exit
+  }
+}
+
+function Write-Output-Format
+{
+    param (
+        [String] $Message
+    )
+    # Write-Output "--------------------------------------------------"
+    # Write-Output "$Message"
+    # Write-Output "--------------------------------------------------"
+    Write-Output "--- $Message"
+}
 
 function Get-Process-Command
 {
