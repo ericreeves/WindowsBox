@@ -1,24 +1,10 @@
 . "$PSScriptRoot\Common.ps1"
 
-# Write-Output "--- Current yasb Processes"
-# Get-Process-Command -Name "pythonw"
+Write-Output "--- Calling Stop-Komorebi.ps1"
+Execute-Command -FilePath "powershell.exe" -ArgumentList "$PSScriptRoot\Stop-Komorebi.ps1"
 
-# Write-Output "--- Killing yasb"
-# Get-Process -Name "pythonw" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
-# Wait-Process -Name "pythonw" -ErrorAction SilentlyContinue
+Write-Output "--- Waiting 5 Seconds..."
+Start-Sleep 5
 
-Write-Output "--- Current komorebi Processes"
-Get-Process-Command -Name "komorebi"
-
-Write-Output "--- Killing komorebi"
-Get-Process -Name "komorebi" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
-Wait-Process -Name "komorebi" -ErrorAction SilentlyContinue
-
-Write-Output "--- Starting AutoHotKey "
-Invoke-Item "$AHK_Folder\$AHK_Filename"
-
-Wait-For-Process -Name "komorebi"
-Get-Process-Command -Name "komorebi"
-
-# Wait-For-Process -Name "pythonw"
-# Get-Process-Command -Name "pythonw"
+Write-Output "--- Calling Start-Komorebi.ps1"
+Execute-Command -FilePath "powershell.exe" -ArgumentList "$PSScriptRoot\Start-Komorebi.ps1"

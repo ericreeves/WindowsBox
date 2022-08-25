@@ -83,8 +83,8 @@ WorkspaceRule("exe", "Ferdium.exe", 0, 0) ; Always show chat apps on this worksp
 
 ; Workspace 2
 WorkspaceName(0, 1, "Terminal")
-WorkspaceRule("exe", "wt.exe", 0, 1) 
-WorkspaceRule("exe", "alacritty.exe", 0, 1) 
+; WorkspaceRule("exe", "wt.exe", 0, 1) 
+; WorkspaceRule("exe", "alacritty.exe", 0, 1) 
 
 ; Workspace 3
 WorkspaceName(0, 2, "Browser")

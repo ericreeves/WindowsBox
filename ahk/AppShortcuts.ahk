@@ -6,6 +6,33 @@
 
 SetWorkingDir, %A_ScriptDir%
 
+$CapsLock::Ctrl 
+
+#^l::WinSet, Bottom,, % "ahk_id " wins().1
+#^k::
+wins := wins()
+WinActivate, % "ahk_id " wins[wins.Count()]
+Return
+
+wins() {
+ uid := []
+ WinGet, wins, List
+ Loop, %wins% {
+  WinGet, style, Style, % "ahk_id " wins%A_Index%
+  If !(style ~= "0x(9|16)")
+   uid.Push(wins%A_Index%)
+ }
+ Return uid
+}
+
+!`:: ;
+WinGetClass, CurrentActive, A
+WinGet, Instances, Count, ahk_class %CurrentActive%
+If Instances > 1
+    WinSet, Bottom,, A
+WinActivate, ahk_class %CurrentActive%
+return
+
 !m::
 Send, {F11}
 return
@@ -21,21 +48,21 @@ return
 
 ; Application Shortcuts
 !t::
-	Run, wt.exe
+	Run, alacritty.exe
 Return
 
 !b::
-	Run, msedge.exe
+	Run, chrome.exe
 Return
 
-!r::
+^!w::
 	ScriptPath := A_ScriptDir "\scripts\Random-Wallpaper.ps1"
 	Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
 Return
 
 ; Reload this script 
 ; Ctrl + Alt + r
-^!r::
+!r::
 	Reload
 Return
 
