@@ -19,4 +19,4 @@ SetWorkingDir, %A_ScriptDir%
 #Include %A_ScriptDir%\include\AppShortcuts.ahk
 
 ; Media Keys using Alt + Win
-#Include %A_ScriptDir%\include\Media.ahk
+; #Include %A_ScriptDir%\include\Media.ahk

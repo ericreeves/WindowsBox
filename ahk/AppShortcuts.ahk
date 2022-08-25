@@ -6,42 +6,52 @@
 
 SetWorkingDir, %A_ScriptDir%
 
-!m::
+#s:: Send {PrintScreen}
+
+; #s::
+; Run "C:\Users\eric\AppData\Local\Microsoft\WindowsApps\SnippingTool.exe"
+; Send ^n
+; Run "C:\Program Files\Flameshot\bin\flameshot.exe" /gui
+; return
+
+::zoomlink::https://hashicorp.zoom.us/j/9101845328?pwd=WXRFQ3VJWGdwQWdNRGhxZHAyRXJBUT09
+
+!^m::
 Send, {F11}
 return
 
 ; Alt-W and Alt-Q Close Windows
-!w:: WinClose A
-!q:: Send !{F4}
+!^w:: WinClose A
+!^q:: Send !{F4}
 
 ; Application Shortcuts
-!t::
-	Run, "C:\Program Files\Alacritty\alacritty.exe"
-Return
+; !t::
+; 	Run, "C:\Program Files\Alacritty\alacritty.exe"
+; Return
 
 ; Application Shortcuts
-!+t::
-	Run, wt.exe
-Return
+; !+t::
+; 	Run, wt.exe
+; Return
 
-!b::
-	Run, msedge.exe
-Return
+; !b::
+; 	Run, msedge.exe
+; Return
 
-!r::
+!^r::
 	ScriptPath := A_ScriptDir "\scripts\Random-Wallpaper.ps1"
 	Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper\5120x1440", A_ScriptDir, Hide
 Return
 
 ; Reload this script 
 ; Ctrl + Alt + r
-^!r::
+#+r::
 	Reload
 Return
 
 
 ; Minimize All Windows
-^!m::
+!+m::
 	WinGet, WindowList, List,,, Program Manager
 	Loop, %WindowList%
 	{
