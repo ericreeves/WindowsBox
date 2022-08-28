@@ -12,9 +12,9 @@ Write-Output-Format "[komorebi] Sleeping for 5 Seconds..."
 Start-Sleep 5
 
 Write-Output-Format "[yasb] Starting yasb"
-Start-Process -FilePath "$Python_Bin_Folder\pythonw3.9.exe" -ArgumentList "src/main.py" -WorkingDirectory "$Yasb_Folder" -WindowStyle Hidden -ErrorAction SilentlyContinue 
+Start-Process -FilePath "$Python_Bin_Folder\pythonw.exe" -ArgumentList "src/main.py" -WorkingDirectory "$Yasb_Folder" -WindowStyle Hidden -ErrorAction SilentlyContinue 
 
-Wait-For-Process -Name "pythonw3.9"
+Wait-For-Process -Name "pythonw"
 
 Write-Output-format "[ahk] Starting AutoHotKey"
 "AutoHotKey.exe $AHK_Folder\$AHK_Filename"
