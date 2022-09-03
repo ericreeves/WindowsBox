@@ -59,7 +59,7 @@ Return
 	Run, chrome.exe
 Return
 
-^!w::
+;^!w::
 ; !+t::
 ; 	Run, wt.exe
 ; Return
