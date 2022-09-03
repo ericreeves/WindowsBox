@@ -6,7 +6,11 @@
 
 SetWorkingDir, %A_ScriptDir%
 
+::zoomlink::https://hashicorp.zoom.us/j/9101845328?pwd=WXRFQ3VJWGdwQWdNRGhxZHAyRXJBUT09
+
 $CapsLock::Ctrl 
+
+#s:: Send {PrintScreen}
 
 #^l::WinSet, Bottom,, % "ahk_id " wins().1
 #^k::
@@ -38,8 +42,8 @@ Send, {F11}
 return
 
 ; Alt-W and Alt-Q Close Windows
-!w:: WinClose A
-!q:: Send !{F4}
+!^w:: WinClose A
+!^q:: Send !{F4}
 
 ; Application Shortcuts
 ; !t::
@@ -56,6 +60,15 @@ Return
 Return
 
 ^!w::
+; !+t::
+; 	Run, wt.exe
+; Return
+
+; !b::
+; 	Run, msedge.exe
+; Return
+
+!^r::
 	ScriptPath := A_ScriptDir "\scripts\Random-Wallpaper.ps1"
 	Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
 Return
@@ -68,7 +81,7 @@ Return
 
 
 ; Minimize All Windows
-^!m::
+!+m::
 	WinGet, WindowList, List,,, Program Manager
 	Loop, %WindowList%
 	{
