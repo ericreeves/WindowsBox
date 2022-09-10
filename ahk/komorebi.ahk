@@ -29,7 +29,7 @@ ResizeDelta(50)
 InvisibleBorders(7, 0, 14, 7)
 
 ; Default to minimizing windows when switching workspaces
-WindowHidingBehaviour("minimize")
+WindowHidingBehaviour("hide")
 
 ; Enable hot reloading of changes to this file
 WatchConfiguration("enable")
