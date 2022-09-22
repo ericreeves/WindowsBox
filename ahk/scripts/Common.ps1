@@ -7,7 +7,7 @@ $AHK_Filename = "komorebi.ahk"
 $AHK_Shortcuts_Filename = "AppShortcuts.ahk"
 $Komorebi_Bin_Folder = "$env:userprofile\scoop\shims"
 $Python_Bin_Folder = "$env:userprofile\Config\WindowsBox\python3\"
-$Yasb_Folder = "$env:userprofile\Config\yasb"
+$Yasb_Folder = "$env:userprofile\Config\WindowsBox\yasb"
 
 Function Execute-Command ($FilePath, $ArgumentList, $WorkingDirectory, $Title)
 {
