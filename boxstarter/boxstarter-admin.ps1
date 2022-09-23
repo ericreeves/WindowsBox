@@ -18,73 +18,6 @@ $GitEmail = "eric@alluvium.com"
 $GitUserName = "Eric Reeves"
 
 #
-# Chocolately Apps to Install
-#
-$ChocoApps = @(
-    "chocolateygui",
-    "1password",
-    "Firefox",
-    "vivaldi",
-    "googlechrome",
-    "ferdi",
-    "chezmoi",
-    "vscode",
-    "alacritty",
-    "7zip",
-    "github-desktop",
-    "nvidia-geforce-now",
-    "greenshot",
-    "tailscale",
-    "synctrayzor",
-    "signal",
-    "obs-studio",
-    "obs-virtualcam",
-    "winaero-tweaker",
-    "mpvnet.install",
-    "keybase",
-    "autohotkey",
-    "vlc",
-    "sysinternals",
-    "hwinfo",
-    "nuget.commandline",
-    "NugetPackageExplorer",
-    "rocolatey",
-    "filezilla",
-    "paint.net",
-    #"mousewithoutborders",
-    "pingplotter",
-    # "eartrumpet",
-    "windirstat",
-    "spotify",
-    "joplin",
-    "puretext",
-    "quickview",
-    "powertoys",
-    "discord",
-    "betterdiscord",
-    "sudo",
-    "rustup.install",
-    "just",
-    "irfanview"
-    )
-
-#
-# Chocolately Packages to Install, Ignoring Checksum (workaround for broken packages)
-#
-$ChocoAppsIgnoreChecksum = @(
-    "steam-client"
-)
-
-#
-# Chocolatey Packagse to Pin (Applications that update themselves should be pinned, so Chocolately leaves them alone)
-#
-$ChocoPin = @(
-    "Firefox",
-    "vscode",
-    "ferdi"
-)
-
-#
 # WinGet Packages to Install
 #
 $WingetApps = @(
@@ -262,37 +195,6 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\
 Update-Help -ErrorAction SilentlyContinue
 
 #-------------------------------------------------------------------------------
-#--- Chocolatey Apps ---
-#-------------------------------------------------------------------------------
-Write-Banner -Text "Installing Chocolatey Packages"
-
-# We run upgrade which will install the software if it doesn't exist or upgrade it if it does.
-if ($ChocoApps.Count -gt 0) {
-    # Install a ton of other crap I use or like, update $ChocoInsalls to suit your needs of course
-    $ChocoApps | Foreach-Object {
-        try {
-            choco upgrade -y $_ --cacheLocation "$($env:userprofile)\AppData\Local\Temp\chocolatey"
-        }
-        catch {
-            Write-Warning "Unable to install software package with Chocolatey: $($_)"
-        }
-    }
-}
-else {
-    Write-Output 'There were no packages to install!'
-}
-
-Write-Banner -Text "Installing Chocolatey Packages (Ignoring Checksums)"
-foreach ($app in $ChocoAppsIgnoreChecksum) {
-    choco upgrade "$app" -y --ignore-checksums --cacheLocation "$($env:userprofile)\AppData\Local\Temp\chocolatey"
-}
-
-Write-Banner -Text "Pinning Self-Updating Chocolatey Packages"
-foreach ($pinapp in $ChocoPin) {
-    choco pin add -n="$pinapp"
-}
-
-#-------------------------------------------------------------------------------
 #--- Winget Apps ---
 #-------------------------------------------------------------------------------
 Write-Banner -Text "Installing Winget Packages"
@@ -304,13 +206,13 @@ foreach ($app in $WingetApps) {
 #-------------------------------------------------------------------------------
 #--- Git ---
 #-------------------------------------------------------------------------------
-Write-Banner -Text "Installing and Configuring Git for Windows"
-choco install git -y --params "/GitAndUnixToolsOnPath"
-refreshenv
+# Write-Banner -Text "Installing and Configuring Git for Windows"
+# choco install git -y --params "/GitAndUnixToolsOnPath"
+# refreshenv
 
-git config --global user.email "$GitEmail"
-git config --global user.name "$GitUserName"
-git config --global core.autocrlf true
+# git config --global user.email "$GitEmail"
+# git config --global user.name "$GitUserName"
+# git config --global core.autocrlf true
 
 #-------------------------------------------------------------------------------
 #--- Restore Temporary Settings ---
