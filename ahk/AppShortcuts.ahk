@@ -4,6 +4,12 @@
 ; + Shift
 ; & An ampersand may be used between any two keys or mouse buttons to combine them into a custom hotkey.
 
+#NoEnv
+#Persistent
+#SingleInstance, force
+Process, Priority, %PID%, High
+SetBatchLines, -1
+
 SetWorkingDir, %A_ScriptDir%
 
 ::zoomlink::https://hashicorp.zoom.us/j/9101845328?pwd=WXRFQ3VJWGdwQWdNRGhxZHAyRXJBUT09
