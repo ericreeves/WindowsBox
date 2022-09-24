@@ -5,5 +5,5 @@
 
 [submodule "yasb"]
 	path = yasb
-	url = git@github.com:ericreeves/yasb.git
-	branch = litex
+	url = git@github.com:denBot/yasb.git
+	branch = main
