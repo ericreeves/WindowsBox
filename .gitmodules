@@ -1,9 +1,0 @@
-[submodule "python3"]
-	path = python3
-	url = git@github.com:ericreeves/python3-windows.git
-	branch = 3.10.6
-
-[submodule "yasb"]
-	path = yasb
-	url = git@github.com:denBot/yasb.git
-	branch = main
