@@ -6,6 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/lars-berger/GlazeWM/releases/download/v1.7.1/GlazeWM_x64_1.7.1.exe",
+            "bin": "GlazeWM.exe",
             "hash": "76ffa22cd0ff9cbf44e17fe3620948fd2f38005bef67fc014f3ae719185d81b6"
         }
     },
@@ -20,6 +21,7 @@
         "architecture": {
             "64bit": {
                 "url": "https://github.com/lars-berger/GlazeWM/releases/download/v$version/GlazeWM_x64_$version.exe",
+                "bin": "GlazeWM.exe",
                 "hash": "76ffa22cd0ff9cbf44e17fe3620948fd2f38005bef67fc014f3ae719185d81b6"
             }
         }
