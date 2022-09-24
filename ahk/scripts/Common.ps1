@@ -2,12 +2,14 @@
 # Configuration
 # ----------------------------------------------------------------------------
 
+$WindowsBox_Folder = "$env:userprofile\Config\WindowsBox"
 $AHK_Folder = "$env:userprofile\Config\WindowsBox\ahk"
 $AHK_Filename = "komorebi.ahk"
 $AHK_Shortcuts_Filename = "AppShortcuts.ahk"
 $Komorebi_Bin_Folder = "$env:userprofile\scoop\shims"
-$Python_Bin_Folder = "$env:userprofile\Config\WindowsBox\python3\"
-$Yasb_Folder = "$env:userprofile\Config\yasb"
+$Python_Bin_Folder = "$env:userprofile\Config\WindowsBox\python3"
+$Yasb_Folder = "$env:userprofile\Config\WindowsBox\yasb"
+$Yasb_Config_Folder = "$env:userprofile\.yasb"
 
 Function Execute-Command ($FilePath, $ArgumentList, $WorkingDirectory, $Title)
 {
