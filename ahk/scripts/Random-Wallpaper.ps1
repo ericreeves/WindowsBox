@@ -8,8 +8,7 @@ param ([string]$WallPaperPath)
 
 function Get-Random-Image {
 	param (
-		[string]$WallPaperPath = "C:\Users\Eric Reeves\Pictures\Wallpaper",
-		[string]$Path = "$PSScriptRoot"
+		[string]$WallPaperPath = "$home\Pictures\Wallpaper"
 	)
 	$Wallpaper = Get-ChildItem -Path $WallPaperPath -recurse | Where-Object {($_.extension -eq ".jpg" -or $_.extension -eq ".png" -or $_.extension -eq ".jpeg")} | Get-Random -Count 1 | ForEach-Object { $_.FullName } 
 	Write-Output "$Wallpaper"
@@ -19,5 +18,5 @@ function Get-Random-Image {
 # Get-Monitor | Select-Object -skip 1 | Select-Object -First 1 | Set-WallPaper -Path C:\Wallpapers\nature.jpg
 
 $WallPaper = Get-Random-Image -WallPaperPath $WallPaperPath
-$WallPaper | Out-File "c:\Users\Eric Reeves\Pictures\Wallpaper\current-wallpaper.txt"
+$WallPaper | Out-File "$home\Pictures\Wallpaper\current-wallpaper.txt"
 Get-Monitor | Set-WallPaper -Path $WallPaper

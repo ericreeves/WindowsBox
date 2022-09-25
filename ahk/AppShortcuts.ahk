@@ -18,38 +18,38 @@ $CapsLock::Ctrl
 
 #s:: Send {PrintScreen}
 
-#^l::WinSet, Bottom,, % "ahk_id " wins().1
-#^k::
-wins := wins()
-WinActivate, % "ahk_id " wins[wins.Count()]
-Return
+; #^l::WinSet, Bottom,, % "ahk_id " wins().1
+; #^k::
+; wins := wins()
+; WinActivate, % "ahk_id " wins[wins.Count()]
+; Return
 
-wins() {
- uid := []
- WinGet, wins, List
- Loop, %wins% {
-  WinGet, style, Style, % "ahk_id " wins%A_Index%
-  If !(style ~= "0x(9|16)")
-   uid.Push(wins%A_Index%)
- }
- Return uid
-}
+; wins() {
+;  uid := []
+;  WinGet, wins, List
+;  Loop, %wins% {
+;   WinGet, style, Style, % "ahk_id " wins%A_Index%
+;   If !(style ~= "0x(9|16)")
+;    uid.Push(wins%A_Index%)
+;  }
+;  Return uid
+; }
 
-!`:: ;
-WinGetClass, CurrentActive, A
-WinGet, Instances, Count, ahk_class %CurrentActive%
-If Instances > 1
-    WinSet, Bottom,, A
-WinActivate, ahk_class %CurrentActive%
-return
+; !`:: ;
+; WinGetClass, CurrentActive, A
+; WinGet, Instances, Count, ahk_class %CurrentActive%
+; If Instances > 1
+;     WinSet, Bottom,, A
+; WinActivate, ahk_class %CurrentActive%
+; return
 
 !m::
 Send, {F11}
 return
 
 ; Alt-W and Alt-Q Close Windows
-!^w:: WinClose A
-!^q:: Send !{F4}
+!w:: WinClose A
+!q:: Send !{F4}
 
 ; Application Shortcuts
 ; !t::
@@ -58,7 +58,7 @@ return
 
 ; Application Shortcuts
 !t::
-	Run, alacritty.exe
+	Run, wt.exe
 Return
 
 !b::
@@ -74,14 +74,14 @@ Return
 ; 	Run, msedge.exe
 ; Return
 
-!^r::
+!^w::
 	ScriptPath := A_ScriptDir "\scripts\Random-Wallpaper.ps1"
 	Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
 Return
 
 ; Reload this script 
 ; Ctrl + Alt + r
-!r::
+!^r::
 	Reload
 Return
 
@@ -135,11 +135,11 @@ Return
 
 ; 'Convert' Key
 ; Elecom Button 8 - Track Scroll
-vk1C::XButton2
+; vk1C::XButton2
 
 ; 'No Convert' Key
 ; Elecom Buttom 1 - Middle Click
-vk1D::XButton1
+; vk1D::XButton1
 
 ; vk19::
 ; {
