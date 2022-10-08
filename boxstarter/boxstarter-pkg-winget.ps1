@@ -24,6 +24,7 @@ $apps = @(
     @{name = "Discord.Discord" },
     # @{name = "EpicGames.EpicGamesLauncher" },
     @{name = "Nvidia.GeForceExperience" },
+    @{name = "Audacity.Audacity" },
     # @{name = "Playnite.Playnite" },
     @{name = "Microsoft.WindowsTerminal" },
     @{name = "GitHub.GitHubDesktop" },
@@ -39,7 +40,8 @@ $apps = @(
     @{name = "rickbutton.workspacer.beta"; force = "true" },
     @{name = "Spotify.Spotify"; force = "true" },
     @{name = "SyncTrayzor.SyncTrayzor" },
-    @{name = "Microsoft.PowerToys" }
+    @{name = "Microsoft.PowerToys" },
+    @{name = "AltDrag.AltDrag" }
 )
 
 #-------------------------------------------------------------------------------
