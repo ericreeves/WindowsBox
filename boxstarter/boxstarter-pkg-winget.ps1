@@ -3,6 +3,7 @@
 #
 $apps = @(
     @{name = "Notepads App" },
+    @{name = "Microsoft.PowerToys" },
     @{name = "Lexikos.AutoHotkey" },
     @{name = "1Password" },
     @{name = "LGUG2Z.komorebi" },
@@ -40,8 +41,9 @@ $apps = @(
     @{name = "rickbutton.workspacer.beta"; force = "true" },
     @{name = "Spotify.Spotify"; force = "true" },
     @{name = "SyncTrayzor.SyncTrayzor" },
-    @{name = "Microsoft.PowerToys" },
-    @{name = "AltDrag.AltDrag" }
+    @{name = "WinDirStat.WinDirStat" },
+    @{name = "AltSnap.AltSnap" },
+    @{name = "SlackTechnologies.Slack" }
 )
 
 #-------------------------------------------------------------------------------
