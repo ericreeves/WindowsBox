@@ -2,17 +2,19 @@
 # WinGet Packages to Install
 #
 $apps = @(
-    @{name = "Notepads App" },
+    @{name = "gerardog.gsudo" },
+    @{name = "JackieLiu.NotepadsApp" },
     @{name = "Microsoft.PowerToys" },
     @{name = "Lexikos.AutoHotkey" },
     @{name = "1Password" },
     @{name = "LGUG2Z.komorebi" },
     @{name = "TranslucentTB" },
     @{name = "7zip.7zip" },
-    @{name = "NuGet Package Explorer" },
-    @{name = "Microsoft.Sysinternals.ProcessMonitor" },
-    @{name = "Microsoft.Sysinternals.ProcessExplorer" },
-    @{name = "Microsoft.Sysinternals.Autoruns" },
+    @{name = "gsass1.NTop" },
+    @{name = "Microsoft.NuGet"; admin = "true" },
+    @{name = "Microsoft.Sysinternals.ProcessMonitor"; admin = "true" },
+    @{name = "Microsoft.Sysinternals.ProcessExplorer"; admin = "true" },
+    @{name = "Microsoft.Sysinternals.Autoruns"; admin = "true" },
     @{name = "Microsoft.VisualStudioCode" },
     @{name = "Tailscale" },
     @{name = "Keybase" },
@@ -66,6 +68,9 @@ Foreach ($app in $apps) {
         }
         elseif ($null -ne $app.interactive) {
             winget install --exact --interactive $app.name
+        }
+        elseif ($null -ne $app.admin) {
+            gsudo winget install --exact $app.name
         }
         else {
             winget install --exact --silent $app.name
