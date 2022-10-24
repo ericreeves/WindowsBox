@@ -20,8 +20,8 @@ $CapsLock::Ctrl
 #s:: Send {PrintScreen}
 
 ; Windows Moving Stuff
-!h:: Send #^{Left}
-!l:: Send #^{Right}
+!u:: Send #^{Left}
+!i:: Send #^{Right}
 !j:: Send !{Esc}
 !k:: Send !+{Esc}
 !^j:: Send #{Right}
