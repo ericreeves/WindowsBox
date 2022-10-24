@@ -50,7 +50,7 @@ Action<IConfigContext> doConfig = (context) =>
                 new TextWidget(" "),
                 new TitleWidget() {
                     IsShortTitle = true,
-                    MonitorHasFocusColor = draculaPurple,
+                    // MonitorHasFocusColor = draculaPurple,
                 }
             },
             RightWidgets = () => new IBarWidget[] {
@@ -147,15 +147,18 @@ Action<IConfigContext> doConfig = (context) =>
     context.WindowRouter.AddFilter((window) => !window.Title.Contains("Snip"));
     context.WindowRouter.AddFilter((window) => !window.Title.Contains("Picture-in-Picture"));
     context.WindowRouter.AddFilter((window) => !window.Title.Contains("Keybase"));
+    context.WindowRouter.AddFilter((window) => !window.Title.Equals("Window Spy"));
     context.WindowRouter.AddFilter((window) => !window.Title.Equals("Wox"));
     context.WindowRouter.AddFilter((window) => !window.Title.Equals("Everything"));
     context.WindowRouter.AddFilter((window) => !window.Class.Equals("ApplicationFrameWindow"));
     context.WindowRouter.AddFilter((window) => !window.Title.Equals("MasterStartupHotkeys.ahk"));
+    context.WindowRouter.AddFilter((window) => !window.Class.Equals("TWizardForm")); // Deletion dialog
     context.WindowRouter.AddFilter((window) => !window.Class.Equals("#32770")); // Deletion dialog
     context.WindowRouter.AddFilter((window) => !window.Class.Equals("OperationStatusWindow")); // Copying dialog
     context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("pinentry")); // Yubikey GPG
     context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("qemu-system-x86_64")); // Android Emulator
     context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("notepad")); // Notepad
+    context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("SmoothScrollGUI"));
 
     context.WindowRouter.AddRoute((window) => window.Title.Contains("Ferdium") ? context.WorkspaceContainer["1"] : null);
     context.WindowRouter.AddRoute((window) => window.Title.Contains("Terminal") ? context.WorkspaceContainer["2"] : null);
