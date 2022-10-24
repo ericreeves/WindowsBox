@@ -4,6 +4,7 @@
 ; + Shift
 ; & An ampersand may be used between any two keys or mouse buttons to combine them into a custom hotkey.
 
+
 #NoEnv
 #Persistent
 #SingleInstance, force
@@ -17,6 +18,15 @@ SetWorkingDir, %A_ScriptDir%
 $CapsLock::Ctrl 
 
 #s:: Send {PrintScreen}
+
+; Windows Moving Stuff
+!h:: Send #^{Left}
+!l:: Send #^{Right}
+!j:: Send !{Esc}
+!k:: Send !+{Esc}
+!^j:: Send #{Right}
+!^k:: Send #{Left}
+
 
 ; #^l::WinSet, Bottom,, % "ahk_id " wins().1
 ; #^k::
