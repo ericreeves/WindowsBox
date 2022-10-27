@@ -19,14 +19,37 @@ $CapsLock::Ctrl
 
 #s:: Send {PrintScreen}
 
-; Windows Moving Stuff
-!u:: Send #^{Left}
-!i:: Send #^{Right}
-!j:: Send !{Esc}
-!k:: Send !+{Esc}
-!^j:: Send #{Right}
-!^k:: Send #{Left}
+; Switch to Virtual Desktop
+![:: Send #^{Left}
+!]:: Send #^{Right}
 
+; Move App to Virtual Desktop
+!^[:: Send #+{Left}]
+!^]:: Send #+{Right}]
+
+; Switch Betweeen Apps - Whole Desktop
+!u:: Send !{Esc}
+!i:: Send !+{Esc}
+
+; Switch Betweeen Apps - Zone
+!j:: Send !^{u}
+!k:: Send !^{i}
+
+; Move App to Desktop Region
+!^h:: Send #{Left}
+!^j:: Send #{Down}
+!^k:: Send #{Up}
+!^l:: Send #{Right}
+
+!m::WinMinimize, A
+
+!f::
+Send, {F11}
+return
+
+; Alt-W and Alt-Q Close Windows
+!w:: WinClose A
+!q:: Send !{F4}
 
 ; #^l::WinSet, Bottom,, % "ahk_id " wins().1
 ; #^k::
@@ -53,13 +76,7 @@ $CapsLock::Ctrl
 ; WinActivate, ahk_class %CurrentActive%
 ; return
 
-!m::
-Send, {F11}
-return
 
-; Alt-W and Alt-Q Close Windows
-!w:: WinClose A
-!q:: Send !{F4}
 
 ; Application Shortcuts
 ; !t::
