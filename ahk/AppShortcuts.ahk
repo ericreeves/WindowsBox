@@ -124,6 +124,16 @@ Return
 	}
 Return
 
+;Turn off monitor after locking system
+#L::  ;; Win + L
+ {
+ Sleep, 200
+ DllCall("LockWorkStation")
+ Sleep, 200
+ SendMessage,0x112,0xF170,2,,Program Manager
+ }
+ return
+
 ; In Elecom MouseAssistant: 
 ;   - bind your "toggle track scroll" button to RAlt
 ;   - bind your "middle click" button to RCtrl
