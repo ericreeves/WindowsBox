@@ -28,12 +28,12 @@ $CapsLock::Ctrl
 !^]:: Send #+{Right}]
 
 ; Switch Betweeen Apps - Whole Desktop
-!u:: Send !{Esc}
-!i:: Send !+{Esc}
+!j:: Send !{Esc}
+!k:: Send !+{Esc}
 
 ; Switch Betweeen Apps - Zone
-!j:: Send !^{u}
-!k:: Send !^{i}
+!h:: Send !^{u}
+!l:: Send !^{i}
 
 ; Move App to Desktop Region
 !^h:: Send #{Left}
