@@ -77,12 +77,6 @@ return
 ; return
 
 
-
-; Application Shortcuts
-; !t::
-; 	Run, "C:\Program Files\Alacritty\alacritty.exe"
-; Return
-
 ; Application Shortcuts
 !t::
 	Run, wt.exe
@@ -92,18 +86,13 @@ Return
 	Run, chrome.exe
 Return
 
-;^!w::
-; !+t::
-; 	Run, wt.exe
-; Return
-
-; !b::
-; 	Run, msedge.exe
-; Return
-
-!^w::
+!^BackSpace::
 	ScriptPath := A_ScriptDir "\scripts\Random-Wallpaper.ps1"
-	Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
+	if (A_ComputerName = "Analog") {
+		Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper\5120x1440", A_ScriptDir, Hide
+	} else {
+		Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
+	}
 Return
 
 ; Reload this script 
