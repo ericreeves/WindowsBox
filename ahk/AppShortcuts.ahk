@@ -101,7 +101,7 @@ Return
 ; 	Run, msedge.exe
 ; Return
 
-!^w::
+^Backspace::
 	ScriptPath := A_ScriptDir "\scripts\Random-Wallpaper.ps1"
 	Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
 Return
