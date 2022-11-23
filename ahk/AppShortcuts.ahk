@@ -28,12 +28,12 @@ $CapsLock::Ctrl
 !^]:: Send #+{Right}]
 
 ; Switch Betweeen Apps - Whole Desktop
-!u:: Send !{Esc}
-!i:: Send !+{Esc}
+!j:: Send !{Esc}
+!k:: Send !+{Esc}
 
 ; Switch Betweeen Apps - Zone
-!j:: Send !^{u}
-!k:: Send !^{i}
+!h:: Send !^{u}
+!l:: Send !^{i}
 
 ; Move App to Desktop Region
 !^h:: Send #{Left}
@@ -77,12 +77,6 @@ return
 ; return
 
 
-
-; Application Shortcuts
-; !t::
-; 	Run, "C:\Program Files\Alacritty\alacritty.exe"
-; Return
-
 ; Application Shortcuts
 !t::
 	Run, wt.exe
@@ -103,7 +97,11 @@ Return
 
 ^Backspace::
 	ScriptPath := A_ScriptDir "\scripts\Random-Wallpaper.ps1"
-	Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
+	if (A_ComputerName = "Analog") {
+		Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper\5120x1440", A_ScriptDir, Hide
+	} else {
+		Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
+	}
 Return
 
 ; Reload this script 
@@ -123,6 +121,16 @@ Return
 			WinMinimize, % "ahk_id " . WindowList%A_Index%
 	}
 Return
+
+;Turn off monitor after locking system
+#L::  ;; Win + L
+ {
+ Sleep, 200
+ DllCall("LockWorkStation")
+ Sleep, 200
+ SendMessage,0x112,0xF170,2,,Program Manager
+ }
+ return
 
 ; In Elecom MouseAssistant: 
 ;   - bind your "toggle track scroll" button to RAlt
