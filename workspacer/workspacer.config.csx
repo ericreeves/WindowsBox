@@ -2,6 +2,7 @@
 #r "C:\Program Files\workspacer\plugins\workspacer.Bar\workspacer.Bar.dll"
 #r "C:\Program Files\workspacer\plugins\workspacer.ActionMenu\workspacer.ActionMenu.dll"
 #r "C:\Program Files\workspacer\plugins\workspacer.FocusIndicator\workspacer.FocusIndicator.dll"
+#r "C:\Program Files\workspacer\plugins\workspacer.FocusBorder\workspacer.FocusBorder.dll"
 #r "C:\Program Files\workspacer\plugins\workspacer.TitleBar\workspacer.TitleBar.dll"
 #r "C:\Program Files\workspacer\plugins\workspacer.Gap\workspacer.Gap.dll"
 
@@ -11,349 +12,435 @@ using workspacer.Bar;
 using workspacer.Bar.Widgets;
 using workspacer.ActionMenu;
 using workspacer.FocusIndicator;
+using workspacer.FocusBorder;
 using workspacer.TitleBar;
 using workspacer.Gap;
 
-Action<IConfigContext> doConfig = (context) =>
+return new Action<IConfigContext>((IConfigContext context) =>
 {
-    // Uncomment to switch update branch (or to disable updates)
-    context.Branch = Branch.Unstable;
+	// Uncomment to switch update branch (or to disable updates)
+	// context.Branch = Branch.Unstable;
 
-    var fontSize = 10;
-    var fontFace = "CaskaydiaCove Nerd Font Bold";
-    var taskBarSize = (int) (fontSize * 2.1);
-    var defaultBgColor = new Color( 0x22, 0x25, 0x22);
-    var gap = 20;
+    //* ******* *//
+    //* THEMING *//
+    //* ******* *//
 
-    var draculaBackground = new Color(0x1e, 0x20, 0x29);
-    var draculaForeground = new Color(0xf8, 0xf8, 0xf2);
-    var draculaComment = new Color(0x62, 0x72, 0xa4);
-    var draculaCyan = new Color(0x8b, 0xe9, 0xfd);
-    var draculaPurple = new Color(0xbd, 0x93, 0xf9);
+	// var background      = new Color(0x1e, 0x20, 0x29);
+    // var background      = new Color(39,  46,   62);
+    
+    var background      = new Color(33, 31, 43);
+    var urgent          = new Color(191, 97,  106);
+    var positive        = new Color(163, 190, 140);
+    var warning         = new Color(235, 203, 139);
+    // var foreground      = new Color(129, 161, 193); // default
+    var foreground      = new Color(240, 240, 240);
+    var foreground2     = new Color(180, 142, 173);
+    var foreground3     = new Color(230,230,230);
+    var foreground4     = new Color(229, 233, 240);
+    // var alt_background  = new Color(86,  106, 116); // default
+    var alt_background      = new Color(33, 31, 43);
+    var alt_urgent      = new Color(191, 97,  106);
+    var alt_positive    = new Color(163, 190, 140);
+    var alt_warning     = new Color(235, 203, 139);
+    var alt_foreground  = new Color(230,230,230);
+    var alt_foreground2 = new Color(180, 142, 173);
+    var alt_foreground3 = new Color(143, 188, 187);
+    var alt_foreground4 = new Color(236, 239, 244);
+    var transparencykey = new Color(12,12,12);
+    var fontSize        = 10;
+	// var fontName        = "CaskaydiaCove Nerd Font Bold";
+	var fontName        = "OperatorMono Nerd Font";
+    var barHeight       = 30;
+    var gap             = 10;
 
-    context.AddBar(
-        new BarPluginConfig()
+    //* ************ *//
+    //* FOCUS BORDER *//
+    //* ************ *//
+
+    context.AddFocusBorder(new FocusBorderPluginConfig()
+    {
+        BorderColor = foreground3,
+        BorderSize = 5,
+        Opacity = 0.8
+
+    });
+
+
+    //* *** *//
+    //* BAR *//
+    //* *** *//
+
+    context.AddBar(new BarPluginConfig()
+    {
+        //* Bar config
+        FontSize = fontSize,
+        BarHeight = barHeight,
+        FontName = fontName,
+        DefaultWidgetBackground = background,
+        DefaultWidgetForeground = foreground,
+        IsTransparent = false,
+        // TransparencyKey = transparencykey,
+        Background = background,
+        BarIsTop = false,
+        BarReservesSpace = true,
+        //BarMargin = 5,
+
+        //* Left Widgets
+        LeftWidgets = () => new IBarWidget[]
         {
-            FontName = fontFace,
-            FontSize = fontSize,
-            BarHeight = taskBarSize,
-            DefaultWidgetForeground = draculaForeground,
-            DefaultWidgetBackground = draculaBackground,
-            Background = draculaBackground,
-            LeftWidgets = () => new IBarWidget[] {
-                new TextWidget(" "),
-                new WorkspaceWidget() {
-                    WorkspaceHasFocusColor = draculaPurple,
-                    WorkspaceEmptyColor = draculaComment,
-                    WorkspaceIndicatingBackColor = draculaCyan,
-                },
-                new TextWidget(" "),
-                new TitleWidget() {
-                    IsShortTitle = true,
-                    // MonitorHasFocusColor = draculaPurple,
-                }
+            new ActiveLayoutWidget(),
+            new TextWidget("|"), 
+            new WorkspaceWidget()
+            {
+                WorkspaceHasFocusColor = positive,
+                WorkspaceEmptyColor = alt_background,
+                WorkspaceIndicatingBackColor =  urgent,
             },
-            RightWidgets = () => new IBarWidget[] {
-                new TimeWidget(200, "HH:mm:ss"),
-                new TextWidget(" ["),
-                new ActiveLayoutWidget(),
-                new TextWidget("] "),
-            }
-        }
-    );
-
-    context.AddGap(
-        new GapPluginConfig()
+            new TextWidget("  "), 
+            new TitleWidget() 
+            {
+                WindowHasFocusColor = foreground3,
+                IsShortTitle = true,
+                NoWindowMessage = ""
+            },
+        },
+        
+        //* Right Widgets
+        RightWidgets = () => new IBarWidget[]
         {
-            InnerGap = gap,
-            OuterGap = gap / 2,
-            Delta = gap / 2,
-            // GapColor = draculaBackground,
+            new CpuPerformanceWidget() 
+            {
+                StringFormat = "" + "{0}%"  
+            },
+            new MemoryPerformanceWidget()
+            {
+                StringFormat = " " + "{0}%"  
+            },
+             new TextWidget(" "), 
+             new BatteryWidget(),
+             new TextWidget("  "),
+             new TimeWidget(1000, "HH:mm dd/MM/yyyy"),
+             new TextWidget(" "),
         }
-    );
+    });
 
-    context.AddFocusIndicator(
-        new FocusIndicatorPluginConfig()
-        {
-            BorderColor = draculaPurple,
-            BorderSize = 2,
-            TimeToShow = 1000,
-        }
-    );
 
-    var titleBarPluginConfig = new TitleBarPluginConfig(
-        new TitleBarStyle(
-            showTitleBar: false,
-            showSizingBorder: false
-        )
-    );
-    context.AddTitleBar(titleBarPluginConfig);
+    //* **** *//
+    //* GAPS *//
+    //* **** *//
 
+    var gapPlugin = context.AddGap(new GapPluginConfig() { InnerGap = gap, OuterGap = 2, Delta = 2});
+
+    //* *********** *//
+    //* ACTION MENU *//
+    //* *********** *//
     var actionMenu = context.AddActionMenu(new ActionMenuPluginConfig()
     {
-        MenuHeight = taskBarSize,
+        RegisterKeybind = false,
+        MenuHeight = barHeight,
         FontSize = fontSize,
-        FontName = fontFace,
-        Background = draculaBackground,
-        Foreground = draculaForeground,
-        KeybindKey = Keys.X,
+        FontName = fontName,
+        Background = background,
     });
-    var subMenu = actionMenu.Create();
 
-    // Sleep
-    string sleepCmd;
-    sleepCmd = "/C rundll32.exe powrprof.dll,SetSuspendState 0,1,0";
-    // Lock Desktop
-    string lockCmd;
-    lockCmd = "/C rundll32.exe user32.dll,LockWorkStation";
-    // Shutdown
-    string shutdownCmd;
-    shutdownCmd = "/C shutdown /s /t 0";
-    // Restart
-    string restartCmd;
-    restartCmd = "/C shutdown /r /t 0";
+    //* Action menu builder
+    Func<ActionMenuItemBuilder> createActionMenuBuilder = () =>
+    {
+        var menuBuilder = actionMenu.Create();
 
-    subMenu.Add("sleep", () => System.Diagnostics.Process.Start("CMD.exe", sleepCmd));
-    subMenu.Add("lock desktop", () => System.Diagnostics.Process.Start("CMD.exe", lockCmd));
-    subMenu.Add("shutdown", () => System.Diagnostics.Process.Start("CMD.exe", shutdownCmd));
-    subMenu.Add("restart", () => System.Diagnostics.Process.Start("CMD.exe", restartCmd));
+        //* Workspacer functions
+        menuBuilder.Add("View keybinds", () => context.Keybinds.ShowKeybindDialog());
+        menuBuilder.Add("Enable/Disable Workspacer", () => context.Enabled = !context.Enabled);
+        menuBuilder.Add("Restart Workspacer", () => context.Restart());
+        menuBuilder.Add("Quit Workspacer", () => context.Quit());
 
-    actionMenu.DefaultMenu.AddMenu("log off", subMenu);
+        return menuBuilder;
+    };
+    var actionMenuBuilder = createActionMenuBuilder();
 
-    // Set workspaces ( 1, 2, 3, 4, 5 )
-    context.WorkspaceContainer.CreateWorkspaces("1", "2", "3", "4", "5", "6", "7", "8", "9", "0");
-    context.CanMinimizeWindows = false; // false by default
-    // context.DefaultLayouts = () => new ILayoutEngine[] { new FullLayoutEngine(), new TallLayoutEngine(), new VertLayoutEngine(), new HorzLayoutEngine(), new PaneLayoutEngine(), new DwindleLayoutEngine() };
-    // context.DefaultLayouts = () => new ILayoutEngine[] { new PaneLayoutEngine() };
-    /* Default layouts */
+
+    //* ****** *//
+    //* CONFIG *//
+    //* ****** *//
+
+    context.CanMinimizeWindows = true;
+    context.ToggleConsoleWindow(); //disable console on startup
+
+
+    //* ******* *//
+    //* LAYOUTS *//
+    //* ******* *//
+
+    //* Define Layout list
     Func<ILayoutEngine[]> defaultLayouts = () => new ILayoutEngine[]
     {
-        new TallLayoutEngine(),
-        new VertLayoutEngine(),
-        new HorzLayoutEngine(),
-        new FullLayoutEngine(),
-        new DwindleLayoutEngine(),
+        new DwindleLayoutEngine(1,0.65,0.03){
+            Name = "dwindle"
+            // Name = "侀"
+        },
+        new TallLayoutEngine(){
+            Name = "tall"
+            // Name = "﬿"
+        },
+        new VertLayoutEngine(){
+            Name = "vert"
+            // Name = "ﰧ"
+        },
+        new HorzLayoutEngine(){
+            Name = "horz"
+            // Name = "ﰦ"
+        },
+        new FullLayoutEngine(){
+            Name = "full"
+            // Name = ""
+        },
+        new FocusLayoutEngine(){
+            Name = "focus"
+            // Name = "頻"
+        },
     };
 
+    //*Assign layout list to config context
     context.DefaultLayouts = defaultLayouts;
 
 
-    // Exclude Applications from being managed by workspacer (games & forced fullscreen apps)
-    context.WindowRouter.AddFilter((window) => !window.Title.Contains("KensingtonWorks"));
-    context.WindowRouter.AddFilter((window) => !window.Title.Contains("League of Legends"));
-    context.WindowRouter.AddFilter((window) => !window.Title.Contains("Legends of Runeterra"));
-    context.WindowRouter.AddFilter((window) => !window.Title.Contains("1Password"));
-    context.WindowRouter.AddFilter((window) => !window.Title.Contains("VALORANT"));
-    context.WindowRouter.AddFilter((window) => !window.Title.Contains("Snip"));
-    context.WindowRouter.AddFilter((window) => !window.Title.Contains("Picture-in-Picture"));
-    context.WindowRouter.AddFilter((window) => !window.Title.Contains("Keybase"));
-    context.WindowRouter.AddFilter((window) => !window.Title.Equals("Window Spy"));
-    context.WindowRouter.AddFilter((window) => !window.Title.Equals("Wox"));
-    context.WindowRouter.AddFilter((window) => !window.Title.Equals("Everything"));
-    context.WindowRouter.AddFilter((window) => !window.Class.Equals("ApplicationFrameWindow"));
-    context.WindowRouter.AddFilter((window) => !window.Title.Equals("MasterStartupHotkeys.ahk"));
-    context.WindowRouter.AddFilter((window) => !window.Class.Equals("TWizardForm")); // Deletion dialog
-    context.WindowRouter.AddFilter((window) => !window.Class.Equals("#32770")); // Deletion dialog
-    context.WindowRouter.AddFilter((window) => !window.Class.Equals("OperationStatusWindow")); // Copying dialog
-    context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("pinentry")); // Yubikey GPG
-    context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("qemu-system-x86_64")); // Android Emulator
-    context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("notepad")); // Notepad
-    context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("SmoothScrollGUI"));
+    //* ********** *//
+    //* WORKSPACES *//
+    //* ********** *//
+    
+    //* Define list of workspace names and layouts
+    (string, ILayoutEngine[])[] workspaces =
+    {
+        ("1", defaultLayouts()),
+        ("2", defaultLayouts()),
+        ("3", defaultLayouts()),
+        ("4", defaultLayouts()),
+        ("5", defaultLayouts()),
+        ("6", defaultLayouts()),
+        ("7", defaultLayouts()),
+        ("8", defaultLayouts()),
+        ("9", defaultLayouts()),
+        ("0", defaultLayouts()),
 
-    context.WindowRouter.AddRoute((window) => window.Title.Contains("Ferdium") ? context.WorkspaceContainer["1"] : null);
-    context.WindowRouter.AddRoute((window) => window.Title.Contains("Terminal") ? context.WorkspaceContainer["2"] : null);
-    context.WindowRouter.AddRoute((window) => window.Title.Contains("Google Chrome") ? context.WorkspaceContainer["3"] : null);
-    context.WindowRouter.AddRoute((window) => window.Title.Contains("Microsoft Edge") ? context.WorkspaceContainer["3"] : null);
-    context.WindowRouter.AddRoute((window) => window.Title.Contains("Visual Studio Code") ? context.WorkspaceContainer["4"] : null);
-
-
-    context.Keybinds.UnsubscribeAll();
-    var modAlt = KeyModifiers.Alt;
-    var modControl = KeyModifiers.Control;
-    var modShift = KeyModifiers.Shift;
-
-    // Top Row 
-
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.Q, context.Quit, "quit workspacer");
-    context.Keybinds.Subscribe(modAlt, Keys.Q, context.Restart, "restart workspacer");
-
-    context.Keybinds.Subscribe(modAlt, Keys.T,
-        () => context.Windows.ToggleFocusedWindowTiling(), "toggle tiling for focused window");
-
-    context.Keybinds.Subscribe(modAlt, Keys.Y,
-        () => context.Workspaces.SwitchFocusedMonitor(0), "focus monitor 1");
-
-    context.Keybinds.Subscribe(modAlt, Keys.U,
-        () => context.Workspaces.FocusedWorkspace.DecrementNumberOfPrimaryWindows(), "decrement # primary windows");
-
-    context.Keybinds.Subscribe(modAlt, Keys.I,
-        () => context.Workspaces.FocusedWorkspace.IncrementNumberOfPrimaryWindows(), "increment # primary windows");
-
-    context.Keybinds.Subscribe(modAlt, Keys.O,
-        () => context.Workspaces.SwitchFocusedMonitor(1), "focus monitor 2");
-
-    context.Keybinds.Subscribe(modAlt, Keys.OemCloseBrackets,
-        () => context.Workspaces.FocusedWorkspace.NextLayoutEngine(), "next layout");
-
-    context.Keybinds.Subscribe(modAlt, Keys.OemOpenBrackets,
-        () => context.Workspaces.FocusedWorkspace.PreviousLayoutEngine(), "previous layout");
-
-    // Top Row - Shifted
-
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.U,
-        () => context.Workspaces.MoveFocusedWindowToMonitor(0), "move focused window to monitor 1");
-
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.P,
-        () => context.Workspaces.MoveFocusedWindowToMonitor(1), "move focused window to monitor 2");
-
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.I,
-        () => context.Workspaces.FocusedWorkspace.CloseFocusedWindow(), "close focused window");
+        // ("  Chat", defaultLayouts()),
+        // ("  Terminal", defaultLayouts()),
+        // ("爵  Web", defaultLayouts()),
+        // ("  Coding", defaultLayouts()),
+        // ("  5",defaultLayouts()),
+        // ("懶  Media", defaultLayouts()),
+        // ("  7",defaultLayouts()),
+        // ("  8",defaultLayouts()),
+        // ("  9",defaultLayouts()),
+        // ("  Games", defaultLayouts()),
+    };
+    
+    //* Creates one workspace for each of the layouts defined above
+    foreach ((string name, ILayoutEngine[] layouts) in workspaces)
+    {
+        context.WorkspaceContainer.CreateWorkspace(name, layouts);
+    }
 
 
-    // Middle Row 
+    //* ******* *//
+    //* FILTERS *//
+    //* ******* *//
 
-    context.Keybinds.Subscribe(modAlt, Keys.H,
-        () => context.Workspaces.FocusedWorkspace.ShrinkPrimaryArea(), "shrink primary area");
+    //* By executable name
+    context.WindowRouter.AddFilter((window) => !window.ProcessFileName.Equals("1Password.exe"));
+    context.WindowRouter.AddFilter((window) => !window.ProcessFileName.Equals("pinentry.exe"));
+    context.WindowRouter.AddFilter((window) => !window.ProcessFileName.Equals("AltSnap.exe"));
+    context.WindowRouter.AddFilter((window) => !window.ProcessFileName.Equals("PowerToys.PowerLauncher.exe"));
+	context.WindowRouter.AddFilter((window) => !window.ProcessFileName.Equals("mmc.exe"));
 
-    context.Keybinds.Subscribe(modAlt, Keys.J,
-        () => context.Workspaces.FocusedWorkspace.FocusNextWindow(), "focus next window");
+    //* By process name
+	context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("pinentry")); // Yubikey GPG
+	context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("qemu-system-x86_64")); // Android Emulator
+	context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("notepad")); // Notepad
+	context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("SmoothScrollGUI"));
+	context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("pinentry")); // Yubikey GPG
+	context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("qemu-system-x86_64")); // Android Emulator
+	context.WindowRouter.AddFilter((window) => !window.ProcessName.Equals("notepad")); // Notepad
 
-    context.Keybinds.Subscribe(modAlt, Keys.K,
-        () => context.Workspaces.FocusedWorkspace.FocusPreviousWindow(), "focus previous window");
+    //* By window class
+	context.WindowRouter.AddFilter((window) => !window.Class.Equals("ShellTrayWnd")); // Edge
+    context.WindowRouter.AddFilter((window) => !window.Class.Equals("ShellTrayWnd"));
+    context.WindowRouter.AddFilter((window) => !window.Class.Equals("OperationStatusWindow")); //Explorer File copy
+    context.WindowRouter.AddFilter((window) => !window.Class.Equals("#32770")); //File Selector
+	context.WindowRouter.AddFilter((window) => !window.Class.Equals("ApplicationFrameWindow"));
+	context.WindowRouter.AddFilter((window) => !window.Class.Equals("#32770")); // Deletion dialog
+	context.WindowRouter.AddFilter((window) => !window.Class.Equals("OperationStatusWindow")); // Copying dialog
+	context.WindowRouter.AddFilter((window) => !window.Class.Equals("ApplicationFrameWindow"));
+	context.WindowRouter.AddFilter((window) => !window.Class.Equals("TWizardForm")); // Deletion dialog
+	context.WindowRouter.AddFilter((window) => !window.Class.Equals("#32770")); // Deletion dialog
+	context.WindowRouter.AddFilter((window) => !window.Class.Equals("OperationStatusWindow")); // Copying dialog
 
-    context.Keybinds.Subscribe(modAlt, Keys.L,
-        () => context.Workspaces.FocusedWorkspace.ExpandPrimaryArea(), "expand primary area");
+    //* By window title (equals)
+    context.WindowRouter.AddFilter((window) => !window.Title.Equals("Color Picker"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Equals("Wox"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Equals("Everything"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Equals("MasterStartupHotkeys.ahk"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Equals("Window Spy"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Equals("Wox"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Equals("Everything"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Equals("MasterStartupHotkeys.ahk"));
 
-    context.Keybinds.Subscribe(modAlt, Keys.OemSemicolon,
-        () => context.Workspaces.FocusedWorkspace.ResetLayout(), "reset layout");
+    //* By window title (contains)
+	context.WindowRouter.AddFilter((window) => !window.Title.Contains("KensingtonWorks"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Contains("League of Legends"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Contains("Legends of Runeterra"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Contains("1Password"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Contains("VALORANT"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Contains("Snip"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Contains("Picture-in-Picture"));
+	context.WindowRouter.AddFilter((window) => !window.Title.Contains("Keybase"));
 
-    // Middle Row - shifted 
-
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.J,
-        () => context.Workspaces.FocusedWorkspace.SwapFocusAndNextWindow(), "swap focus and next window");
-
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.K,
-        () => context.Workspaces.FocusedWorkspace.SwapFocusAndPreviousWindow(), "swap focus and previous window");
-
-    // context.Keybinds.Subscribe(modAlt | modControl | modControl, Keys.J,
-    //     () => context.ToggleConsoleWindow(), "toggle debug console");
-
-    // context.Keybinds.Subscribe(modAlt | modControl | modControl, Keys.K,
-    //     () => context.Windows.DumpWindowUnderCursorDebugOutput(), "dump debug info to console for window under cursor");
-
-    // context.Keybinds.Subscribe(modAlt | modControl | modControl, Keys.L,
-    //     () => context.Windows.DumpWindowDebugOutput(), "dump debug info to console for all windows");
-
-
-    // Bottom Row
-
-    context.Keybinds.Subscribe(modAlt, Keys.OemPeriod,
-        () => context.Workspaces.SwitchToNextWorkspace(), "switch to next workspace");
-
-    context.Keybinds.Subscribe(modAlt, Keys.Oemcomma,
-        () => context.Workspaces.SwitchToPreviousWorkspace(), "switch to previous workspace");
-
-    context.Keybinds.Subscribe(modAlt, Keys.OemQuestion,
-        () => context.Keybinds.ShowKeybindDialog(), "open keybind window");
-
-    context.Keybinds.Subscribe(modAlt, Keys.C,
-        () => context.Workspaces.FocusedWorkspace.CloseFocusedWindow(), "close focused window");
+    //* Map Applications to Workspaces
+	// context.WindowRouter.AddRoute((window) => window.Title.Contains("Ferdium") ? context.WorkspaceContainer["1"] : null);
+	// context.WindowRouter.AddRoute((window) => window.Title.Contains("Terminal") ? context.WorkspaceContainer["2"] : null);
+	// context.WindowRouter.AddRoute((window) => window.Title.Contains("Google Chrome") ? context.WorkspaceContainer["3"] : null);
+	// context.WindowRouter.AddRoute((window) => window.Title.Contains("Microsoft Edge") ? context.WorkspaceContainer["3"] : null);
+	// context.WindowRouter.AddRoute((window) => window.Title.Contains("Visual Studio Code") ? context.WorkspaceContainer["4"] : null);
 
 
-    // Bottom Row - Shifted
+    //* *********** *//
+    //* KEYBINDINGS *//
+    //* *********** *//
 
-    // Alt+# Switches Workspaces
-    context.Keybinds.Subscribe(modAlt, Keys.D1,
-        () => context.Workspaces.SwitchToWorkspace(0), "switch to workspace 1");
-    context.Keybinds.Subscribe(modAlt, Keys.D2,
-        () => context.Workspaces.SwitchToWorkspace(1), "switch to workspace 2");
-    context.Keybinds.Subscribe(modAlt, Keys.D3,
-        () => context.Workspaces.SwitchToWorkspace(2), "switch to workspace 3");
-    context.Keybinds.Subscribe(modAlt, Keys.D4,
-        () => context.Workspaces.SwitchToWorkspace(3), "switch to workspace 4");
-    context.Keybinds.Subscribe(modAlt, Keys.D5,
-        () => context.Workspaces.SwitchToWorkspace(4), "switch to workspace 5");
-    context.Keybinds.Subscribe(modAlt, Keys.D6,
-        () => context.Workspaces.SwitchToWorkspace(5), "switch to workspace 6");
-    context.Keybinds.Subscribe(modAlt, Keys.D7,
-        () => context.Workspaces.SwitchToWorkspace(6), "switch to workspace 7");
-    context.Keybinds.Subscribe(modAlt, Keys.D8,
-        () => context.Workspaces.SwitchToWorkspace(7), "switch to workspace 8");
-    context.Keybinds.Subscribe(modAlt, Keys.D9,
-        () => context.Workspaces.SwitchToWorkspace(8), "switch to workspace 9");
-    context.Keybinds.Subscribe(modAlt, Keys.D0,
-        () => context.Workspaces.SwitchToWorkspace(9), "switch to workspace 0");
+Action setKeybindings = () =>
+    {
+        //* Keybinding setup
 
-    // Alt+Shift+# Moves Window and Switches Workspaces
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.D1, () => 
+        // Declare modifiers and combos
+        KeyModifiers altCtrl = KeyModifiers.Alt | KeyModifiers.Control;
+        KeyModifiers altShift = KeyModifiers.Alt | KeyModifiers.Shift;
+        KeyModifiers alt = KeyModifiers.Alt;
+
+        // Initialize Keybind manager
+        IKeybindManager manager = context.Keybinds;
+        // declare variables
+        var workspaces = context.Workspaces;
+
+        // Disables all previous keybindings
+        manager.UnsubscribeAll();
+
+        //* Mouse bindings
+        // Left click focuses monitor
+        manager.Subscribe(MouseEvent.LButtonDown, () => workspaces.SwitchFocusedMonitorToMouseLocation());
+
+        //* Workspace bindings
+        // Automatic keybindings for workspaces 1-9
+        foreach (IWorkspace workspace in context.WorkspaceContainer.GetWorkspaces(context.MonitorContainer.FocusedMonitor))
         {
-            context.Workspaces.MoveFocusedWindowToWorkspace(0);
-            context.Workspaces.SwitchToWorkspace(0);
-        });
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.D2, () => 
-        {
-            context.Workspaces.MoveFocusedWindowToWorkspace(1);
-            context.Workspaces.SwitchToWorkspace(1);
-        });
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.D3, () => 
-        {
-            context.Workspaces.MoveFocusedWindowToWorkspace(2);
-            context.Workspaces.SwitchToWorkspace(2);
-        });
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.D4, () => 
-        {
-            context.Workspaces.MoveFocusedWindowToWorkspace(3);
-            context.Workspaces.SwitchToWorkspace(3);
-        });
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.D5, () => 
-        {
-            context.Workspaces.MoveFocusedWindowToWorkspace(4);
-            context.Workspaces.SwitchToWorkspace(4);
-        });
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.D6, () => 
-        {
-            context.Workspaces.MoveFocusedWindowToWorkspace(5);
-            context.Workspaces.SwitchToWorkspace(5);
-        });
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.D7, () => 
-        {
-            context.Workspaces.MoveFocusedWindowToWorkspace(6);
-            context.Workspaces.SwitchToWorkspace(6);
-        });
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.D8, () => 
-        {
-            context.Workspaces.MoveFocusedWindowToWorkspace(7);
-            context.Workspaces.SwitchToWorkspace(7);
-        });
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.D9, () => 
-        {
-            context.Workspaces.MoveFocusedWindowToWorkspace(8);
-            context.Workspaces.SwitchToWorkspace(8);
-        });
-    context.Keybinds.Subscribe(modAlt | modControl, Keys.D0, () => 
-        {
-            context.Workspaces.MoveFocusedWindowToWorkspace(9);
-            context.Workspaces.SwitchToWorkspace(9);
-        });
+            // Gets workspace index (first workspace is index 0)
+            int i = context.WorkspaceContainer.GetWorkspaceIndex(workspace);
+            // Winkey + numbers 1-9 switches to corresponding workspace (considering index+1)
+            manager.Subscribe(alt, (Keys)(49 + i), () => workspaces.SwitchToWorkspace(workspace),                  "Switch to Workspace " + (i+1));
+            // Winkey +Shift + numbers 1-9 moves focused window to corresponding workspace (considering index+1)
+            manager.Subscribe(altCtrl, (Keys)(49 + i), () => workspaces.MoveFocusedWindowToWorkspace(i),           "Switch to Workspace " + (i+1));
+        }
 
-    string browserCmd;
-    browserCmd = "/C start chrome";
-    string browsernCmd;
-    browsernCmd = "/C start chrome -incognito";
-    string settingsCmd;
-    settingsCmd = "/C start ms-settings:";
+        // Workspace 0 is Special
+		// Winkey + numbers 1-9 switches to corresponding workspace (considering index+1)
+		manager.Subscribe(alt,      Keys.D0, () => workspaces.SwitchToWorkspace(9),                                "Switch to Workspace 0");
+		// Winkey +Shift + numbers 1-9 moves focused window to corresponding workspace (considering index+1)
+		manager.Subscribe(altCtrl,  Keys.D0, () => workspaces.MoveFocusedWindowToWorkspace(9),                     "Switch to Workspace 0");
 
-    // Keyboard Shortcuts
-    // var mod = KeyModifiers.Alt;
-    // Alt + F = File Explorer
-    context.Keybinds.Subscribe(modAlt, Keys.F, () => System.Diagnostics.Process.Start("explorer.exe"), "open file explorer");
-    // Alt + B = Chrome
-    context.Keybinds.Subscribe(modAlt, Keys.B, () => System.Diagnostics.Process.Start("CMD.exe", browserCmd), "open chrome");
-    // Alt + Shift + N = Chrome (Incognito)
-    context.Keybinds.Subscribe(modAlt | workspacer.KeyModifiers.Shift, Keys.N, () => System.Diagnostics.Process.Start("CMD.exe", browsernCmd), "open chrome (incognito)");
-    // Alt + Shift + Enter = Terminal
-    context.Keybinds.Subscribe(modAlt | workspacer.KeyModifiers.Shift, Keys.Enter, () => System.Diagnostics.Process.Start("wt.exe"), "open terminal");
-    // Alt + S = Windows Settings
-    context.Keybinds.Subscribe(modAlt, Keys.S, () => System.Diagnostics.Process.Start("CMD.exe", settingsCmd), "open windows settings");
-};
-return doConfig;
+        manager.Subscribe(alt,      Keys.Oemcomma, () => workspaces.SwitchToPreviousWorkspace(),                   "Switch to previous workspace");
+        manager.Subscribe(alt,      Keys.OemPeriod, () => workspaces.SwitchToNextWorkspace(),                      "Switch to next workspace");
+
+        // Winkey + Shift + Left/Right moves window to previous/next monitor
+        manager.Subscribe(altCtrl,  Keys.OemOpenBrackets, () => workspaces.MoveFocusedWindowToPreviousMonitor(),   "Move focused window to previous monitor");
+        manager.Subscribe(altCtrl,  Keys.OemCloseBrackets, () => workspaces.MoveFocusedWindowToNextMonitor(),      "Move focused window to next monitor");
+
+        manager.Subscribe(alt,      Keys.OemOpenBrackets, () => context.Workspaces.SwitchFocusToPreviousMonitor(), "Switch focus to previous monitor");
+        manager.Subscribe(alt,      Keys.OemCloseBrackets, () => context.Workspaces.SwitchFocusToNextMonitor(),    "Switch focus to next monitor");
+
+	    manager.Subscribe(alt,      Keys.C, () => context.Workspaces.FocusedWorkspace.CloseFocusedWindow(),        "Close focused window");
+    	manager.Subscribe(alt,      Keys.OemSemicolon, () => context.Workspaces.FocusedWorkspace.ResetLayout(),    "Reset layout");
+
+        //* Layout management bindings
+        // Winkey + Shift + H/L keys (vim keys), Shrinks/Expands primary area for current layout
+        manager.Subscribe(altCtrl,  Keys.H, () => workspaces.FocusedWorkspace.ShrinkPrimaryArea(),                 "Shrink primary area");
+        manager.Subscribe(altCtrl,  Keys.L, () => workspaces.FocusedWorkspace.ExpandPrimaryArea(),                 "Expand primary area");
+        // Winkey + Ctrl + H/L keys (vim keys), Decreases/Increases primary window count for current layout
+        manager.Subscribe(altShift, Keys.H, () => workspaces.FocusedWorkspace.DecrementNumberOfPrimaryWindows(),   "Subtract primary windows");
+        manager.Subscribe(altShift, Keys.L, () => workspaces.FocusedWorkspace.IncrementNumberOfPrimaryWindows(),   "Add primary windows");
+        // Winkey + Shift + K/J keys (vim keys), Moves window to next/previous position
+        manager.Subscribe(altCtrl,  Keys.J, () => workspaces.FocusedWorkspace.SwapFocusAndNextWindow(),            "Move window to next position");
+        manager.Subscribe(altCtrl,  Keys.K, () => workspaces.FocusedWorkspace.SwapFocusAndPreviousWindow(),        "Move window to previous position");
+        // Winkey + K/J keys (vim keys), Focuses next/previous window
+        manager.Subscribe(alt,      Keys.J, () => workspaces.FocusedWorkspace.FocusNextWindow(),                   "Focus next window");
+        manager.Subscribe(alt,      Keys.K, () => workspaces.FocusedWorkspace.FocusPreviousWindow(),               "Focus previous window");
+        // Winkey + Ctrl + Add(+)/Subtract(-) Resize inner gap
+        manager.Subscribe(altShift, Keys.Add, () => gapPlugin.IncrementInnerGap(),                                 "Increase inner gap");
+        manager.Subscribe(altShift, Keys.Subtract, () => gapPlugin.DecrementInnerGap(),                            "Decrease inner gap");
+        // Winkey + Shift + Add(+)/Subtract(-) Resize outer gap
+        manager.Subscribe(altCtrl,  Keys.Add, () => gapPlugin.IncrementOuterGap(),                                 "Increase outer gap");
+        manager.Subscribe(altCtrl,  Keys.Subtract, () => gapPlugin.DecrementOuterGap(),                            "Decrease outer gap");
+
+        //* Other shortcuts
+        manager.Subscribe(altCtrl,  Keys.P, () => actionMenu.ShowMenu(actionMenuBuilder),                          "Show workspacer menu");
+        manager.Subscribe(altCtrl,  Keys.R, () => context.Restart(),                                               "Restart workspacer");
+        manager.Subscribe(altCtrl,  Keys.W, () => context.Enabled = !context.Enabled,                              "Toggle workspacer on/off");
+        manager.Subscribe(altCtrl,  Keys.I, () => context.ToggleConsoleWindow(),                                   "Toggle workspacer log console");
+        manager.Subscribe(altCtrl,  Keys.M, () => context.Windows.ToggleFocusedWindowTiling(),                     "Toggle tiling for current window");
+
+        // Winkey + Period Next layout
+        manager.Subscribe(alt,      Keys.I, () => context.Workspaces.FocusedWorkspace.NextLayoutEngine(),          "Next layout");
+        // Winkey + Period Prev layout
+        manager.Subscribe(alt,      Keys.U, () => context.Workspaces.FocusedWorkspace.PreviousLayoutEngine(),      "Previous layout");
+
+        // // all layouts are based on SetLayoutEngines defined order
+
+        // // mod+T switches to tall mode
+        // context.Keybinds.Unsubscribe(mod, Keys.T);
+        // context.Keybinds.Subscribe(mod, Keys.T, () =>
+        // {
+        //     typeof(Workspace).GetField("_layoutIndex", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(context.Workspaces.FocusedWorkspace, 0);
+        //     context.Workspaces.FocusedWorkspace.DoLayout();
+        // });
+
+        // // mod+F switches to full mode
+        // context.Keybinds.Unsubscribe(mod, Keys.F);
+        // context.Keybinds.Subscribe(mod, Keys.F, () =>
+        // {
+        //     typeof(Workspace).GetField("_layoutIndex", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(context.Workspaces.FocusedWorkspace, 1);
+        //     context.Workspaces.FocusedWorkspace.DoLayout();
+        // });
+
+        // // mod+Y switches to dwindle mode
+        // context.Keybinds.Unsubscribe(mod, Keys.Y);
+        // context.Keybinds.Subscribe(mod, Keys.Y, () =>
+        // {
+        //     typeof(Workspace).GetField("_layoutIndex", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(context.Workspaces.FocusedWorkspace, 2);
+        //     context.Workspaces.FocusedWorkspace.DoLayout();
+        // });
+
+        // // mod+U switches to grid mode
+        // context.Keybinds.Unsubscribe(mod, Keys.U);
+        // context.Keybinds.Subscribe(mod, Keys.U, () =>
+        // {
+        //     typeof(Workspace).GetField("_layoutIndex", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(context.Workspaces.FocusedWorkspace, 3);
+        //     context.Workspaces.FocusedWorkspace.DoLayout();
+        // });
+
+		string browserCmd;
+		browserCmd = "/C start chrome";
+		string browsernCmd;
+		browsernCmd = "/C start chrome -incognito";
+		string settingsCmd;
+		settingsCmd = "/C start ms-settings:";
+
+		// Keyboard Shortcuts
+		// var mod = KeyModifiers.Alt;
+		manager.Subscribe(altCtrl, Keys.T, () => System.Diagnostics.Process.Start("wt.exe"), "open terminal");
+		manager.Subscribe(altCtrl, Keys.F, () => System.Diagnostics.Process.Start("explorer.exe"), "open file explorer");
+		manager.Subscribe(altCtrl, Keys.E, () => System.Diagnostics.Process.Start("msedge.exe"), "open edge");
+		manager.Subscribe(altCtrl, Keys.C, () => System.Diagnostics.Process.Start("CMD.exe", browserCmd), "open chrome");
+		manager.Subscribe(altCtrl, Keys.N, () => System.Diagnostics.Process.Start("CMD.exe", browsernCmd), "open chrome (incognito)");
+		manager.Subscribe(altCtrl, Keys.S, () => System.Diagnostics.Process.Start("CMD.exe", settingsCmd), "open windows settings");
+
+
+    };
+    setKeybindings();
+});

@@ -7,11 +7,12 @@
 #--- Install Scoop Apps ---
 #-------------------------------------------------------------------------------
 $ScoopApps = @(
-    "glazewm"
+    "winlister"
 )
 
 scoop bucket add extras
-scoop bucket add scoop-eric https://github.com/ericreeves/WindowsBox.git
+scoop bucket add nirsoft
+# scoop bucket add scoop-eric https://github.com/ericreeves/WindowsBox.git
 scoop update
 
 foreach ($app in $ScoopApps) {

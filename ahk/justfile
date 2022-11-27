@@ -1,7 +1,0 @@
-set shell := ["cmd.exe", "/C"]
-
-install:
-	copy scripts\*.ps1 C:\Users\eric\bin
-	C:\Users\eric\.cargo\bin\komorebic.exe ahk-app-specific-configuration C:\Users\eric\Rice\komorebi-application-specific-configuration\applications.yaml 
-	copy C:\Users\eric\komorebi.generated.ahk C:\Users\eric\Rice\windowsbox\ahk\\komorebi.generated.ahk
-	del C:\Users\eric\komorebi.generated.ahk
