@@ -6,7 +6,7 @@ bar:
   height: 30
   position: "top"
   opacity: 1.0
-  background: "#101010"
+  background: "#212326"
   foreground: "white"
   font_family: "Segoe UI"
   font_size: "13"
@@ -17,7 +17,7 @@ bar:
   # See "Shorthand properties" for more info.
   border_width: "0"
   # Color of the border.
-  border_color: "#101010"
+  border_color: "#212326"
   components_left:
     - type: "workspaces"
       focused_workspace_background: '#6e6293'
@@ -27,7 +27,7 @@ bar:
       displayed_workspace_background: '#6e6293'
       displayed_workspace_foreground: '#3b4261'
 
-      default_workspace_background: '#101010'
+      default_workspace_background: '#212325'
 
       # focused_workspace_background: "#8192B3"
       # displayed_workspace_background: "#212326"
