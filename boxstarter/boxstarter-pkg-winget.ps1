@@ -45,7 +45,9 @@ $apps = @(
     @{name = "SyncTrayzor.SyncTrayzor" },
     @{name = "WinDirStat.WinDirStat" },
     @{name = "AltSnap.AltSnap" },
-    @{name = "SlackTechnologies.Slack" }
+    @{name = "SlackTechnologies.Slack" },
+    @{name = "JanDeDobbeleer.OhMyPosh" },
+    @{name = "lars-berger.GlazeWM" }
 )
 
 #-------------------------------------------------------------------------------
