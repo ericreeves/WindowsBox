@@ -19,18 +19,28 @@ $CapsLock::Ctrl
 
 ::zoomlink::https://hashicorp.zoom.us/j/9101845328?pwd=WXRFQ3VJWGdwQWdNRGhxZHAyRXJBUT09
 
+!m::WinMinimize, A
+
+!f::
+Send, {F11}
+return
+
+; Alt-W and Alt-Q Close Windows
+!w:: WinClose A
+!q:: Send !{F4}
+
 ; Application Shortcuts
-!+t::
-	Run, wt.exe
-Return
+; !+t::
+; 	Run, wt.exe
+; Return
 
-!+c::
-	Run, chrome.exe
-Return
+; !+c::
+; 	Run, chrome.exe
+; Return
 
-!e::
-	Run, msedge.exe
-Return
+; !e::
+; 	Run, msedge.exe
+; Return
 
 !^Backspace::
 	ScriptPath := A_ScriptDir "\scripts\Random-Wallpaper.ps1"
