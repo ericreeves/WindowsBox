@@ -1,10 +1,4 @@
-
-
-New-Item -ItemType Directory -Force -Path $HOME\.config\komorebi
-Copy-Item -Path .\komorebi\*  -Destination $HOME\.config\komorebi\
-
-New-Item -ItemType Directory -Force -Path $HOME\.glazewm
-Copy-Item -Path .\glazewm\*  -Destination $HOME\.glazewm\
-
-New-Item -ItemType Directory -Force -Path $HOME\.workspacer
-Copy-Item -Path .\workspacer\*  -Destination $HOME\.workspacer\
+Copy-Item -Path $HOME\.config\komorebi\*  -Destination .\komorebi\
+Copy-Item -Path $HOME\.glazewm\*    -Destination .\glazewm\ 
+Copy-Item -Path $HOME\.workspacer\* -Destination .\workspacer\  
+Copy-Item -Path C:\Users\eric\OneDrive\Documents\PowerToys\Backup\* -Destination .\powertoys\
