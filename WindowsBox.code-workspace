@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../.glaze-wm"
+		},
+		{
+			"path": "../../.workspacer"
+		},
+		{
+			"path": "../../.config/komorebi"
+		}
+	],
+	"settings": {}
+}

@@ -5,29 +5,29 @@ gaps:
 bar:
   height: 30
   position: "top"
-  opacity: 0.9
-  background: "#101010"
+  opacity: 1.0
+  background: "#212326"
   foreground: "white"
   font_family: "Segoe UI"
   font_size: "13"
-  font_weight: "Bold"
+  # font_weight: "Bold"
   font_weight: "400"
   padding: "1 6 1 6"
   # Horizontal and vertical borders in pixels. Borders are inside the dimensions of the component.
   # See "Shorthand properties" for more info.
   border_width: "0"
   # Color of the border.
-  border_color: "#101010"
+  border_color: "#212326"
   components_left:
     - type: "workspaces"
-      focused_workspace_background: '#666666'
+      focused_workspace_background: '#6e6293'
       focused_workspace_foreground: '#ffffff'
       # focused_workspace_foreground: '#3b4261'
 
-      displayed_workspace_background: '#666666'
+      displayed_workspace_background: '#6e6293'
       displayed_workspace_foreground: '#3b4261'
 
-      default_workspace_background: '#101010'
+      default_workspace_background: '#212325'
 
       # focused_workspace_background: "#8192B3"
       # displayed_workspace_background: "#212326"
@@ -98,40 +98,40 @@ keybindings:
     bindings: ["Alt+Control+J"]
 
   # Resize focused window by a percentage or pixel amount.
-  - command: "resize width -5%"
+  - command: "resize width -2%"
     binding: "Alt+Shift+H"
-  - command: "resize width +5%"
+  - command: "resize width +2%"
     binding: "Alt+Shift+L"
-  - command: "resize height +5%"
+  - command: "resize height +2%"
     binding: "Alt+Shift+K"
-  - command: "resize height -5%"
+  - command: "resize height -2%"
     binding: "Alt+Shift+J"
 
   # Change layout direction to be either horizontal or vertical.
-  - command: "layout vertical"
-    binding: "Alt+Control+V"
   - command: "layout horizontal"
     binding: "Alt+Shift+V"
+  - command: "layout vertical"
+    binding: "Alt+V"
 
   # Change focus between floating / tiling windows.
   - command: "toggle focus mode"
-    binding: "Alt+Shift+Space"
+    binding: "Alt+Control+Space"
 
   # Change the focused window to be floating / tiling.
   - command: "toggle floating"
-    binding: "Alt+Control+F"
+    binding: "Alt+Shift+Space"
 
   # Change the focused window to be maximized / unmaximized.
   - command: "toggle maximized"
-    binding: "Alt+Control+M"
+    binding: "Alt+X"
 
   # Minimize focused window.
   - command: "set minimized"
-    binding: "Alt+Control+N"
+    binding: "Alt+M"
 
   # Close focused window.
   - command: "close"
-    binding: "Alt+Control+C"
+    binding: "Alt+C"
 
   # Kill GlazeWM process safely.
   - command: "exit wm"
@@ -144,7 +144,7 @@ keybindings:
   # Launch CMD terminal (alternatively `exec wt` or `exec %ProgramFiles%/Git/git-bash.exe`
   # to start Windows Terminal and Git Bash respectively.
   - command: "exec wt"
-    binding: "Alt+Control+Enter"
+    binding: "Alt+Enter"
 
   # Focus the workspace that last had focus.
   - command: "focus workspace recent"
