@@ -11,6 +11,12 @@
 		},
 		{
 			"path": "../../.config/komorebi"
+		},
+		{
+			"path": "../../.config/ahk"
+		},
+		{
+			"path": "../yasb"
 		}
 	],
 	"settings": {}
