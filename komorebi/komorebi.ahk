@@ -18,15 +18,16 @@ MouseFollowsFocus("disable")
 ActiveWindowBorder("enable")
 ActiveWindowBorderColour(88, 129, 170, "single")
 CrossMonitorMoveBehaviour("insert")
-FocusFollowsMouse("enabled", "komorebi")
+FocusFollowsMouse("enabled", "windows")
+WindowHidingBehaviour("hide")
 
 Loop, %monitorCount% {
   monitorIndex := A_Index - 1
   EnsureWorkspaces(monitorIndex, workspaceCount)
   Loop, %workspaceCount% {
     workspaceIndex := A_Index - 1
-    ContainerPadding(monitorIndex, workspaceIndex, 1)
-    WorkspacePadding(monitorIndex, workspaceIndex, 1)
+    ContainerPadding(monitorIndex, workspaceIndex, 10)
+    WorkspacePadding(monitorIndex, workspaceIndex, 10)
   }
 }
 
