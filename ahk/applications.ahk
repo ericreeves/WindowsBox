@@ -50,3 +50,39 @@ return
 		Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
 	}
 Return
+
+; These macros trigger when Autohotkey detects the Elecom MouseAssist program sending the Japanese keys.
+; https://www.reddit.com/r/Trackballs/comments/3zrl8h/elecom_driver_autohotkey_trick/
+
+; 'Convert' Key
+; Elecom Button 8 - Track Scroll
+; vk1C::WheelLeft
+
+; 'No Convert' Key
+; Elecom Buttom 1 - Middle Click
+; vk1D::XButton1
+
+; ; Map the Japanese keys to F1-F4 so that you can enter them in the Elecom MouseAssist program.
+; F1::
+; {
+; Send {vk1C} ; Convert
+; return
+; }
+
+; F2::
+; {
+; Send {vk1D} ; No Conversion
+; return
+; }
+
+; F3::
+; {
+; Send {vk19} ; Half-width/Full-width
+; return
+; }
+
+; F4::
+; {
+; Send {vk15} ; Katakana/Hiragana
+; return
+; }

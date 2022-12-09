@@ -26,7 +26,7 @@ ShellMessage(wParam,lParam) {
 
 DrawRect:
   
-  border_thickness := 5
+  border_thickness := 1
   ; border_color := E69EB2
   WinGetPos, x, y, w, h, A
   if (x="")
@@ -54,7 +54,7 @@ DrawRect:
   } else if (borderType="inside") {   
       WinGet, myState, MinMax, A
       if (myState=1)
-          offset:=8
+          offset:=1
       else 
           offset:=0
 
@@ -95,7 +95,7 @@ DrawRect:
 
 
   ; Gui, Color, %border_color%
-  Gui, Color, E69EB2
+  Gui, Color, 216FED
   Gui, -Caption
 
   ;WinSet, Region, 0-0 %w%-0 %w%-%h% 0-%h% 0-0 %border_thickness%-%border_thickness% %iw%-%border_thickness% %iw%-%ih% %border_thickness%-%ih% %border_thickness%-%border_thickness%
