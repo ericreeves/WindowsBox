@@ -39,6 +39,6 @@ function SyncConfig()
 	{
 		New-Item -ItemType Directory -Force -Path "$Destination"
 	}
-	robocopy "$Source" "$Destination" $FileList /L
+	robocopy "$Source" "$Destination" $FileList
 
 }

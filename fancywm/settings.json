@@ -3,18 +3,18 @@
   "ShowStartupWindow": false,
   "AllocateNewPanelSpace": false,
   "AutoCollapsePanels": false,
-  "AnimateWindowMovement": true,
+  "AnimateWindowMovement": false,
   "ModifierMoveWindow": false,
   "ModifierMoveWindowAutoFocus": false,
   "WindowPadding": 0,
-  "PanelHeight": 24,
+  "PanelHeight": 32,
   "PanelFontSize": 12,
   "ShowFocusDuringAction": true,
   "OverrideAccentColor": false,
   "CustomAccentColor": "#0000FFFF",
   "Keybindings": {
     "ToggleManager": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -22,7 +22,7 @@
       ]
     },
     "RefreshWorkspace": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -36,28 +36,28 @@
       ]
     },
     "MoveFocusLeft": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "H"
       ]
     },
     "MoveFocusUp": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "K"
       ]
     },
     "MoveFocusRight": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "L"
       ]
     },
     "MoveFocusDown": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "J"
@@ -65,7 +65,7 @@
     },
     "ShowDesktop": null,
     "CreateHorizontalPanel": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -73,22 +73,21 @@
       ]
     },
     "CreateVerticalPanel": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "V"
       ]
     },
     "CreateStackPanel": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
-        "LeftShift",
-        "V"
+        "S"
       ]
     },
     "PullWindowUp": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -96,7 +95,7 @@
       ]
     },
     "ToggleFloatingMode": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftCtrl",
         "LeftAlt",
@@ -104,7 +103,7 @@
       ]
     },
     "MoveLeft": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -112,7 +111,7 @@
       ]
     },
     "MoveUp": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -120,7 +119,7 @@
       ]
     },
     "MoveRight": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -128,7 +127,7 @@
       ]
     },
     "MoveDown": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -136,7 +135,7 @@
       ]
     },
     "SwapLeft": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -145,7 +144,7 @@
       ]
     },
     "SwapUp": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -154,7 +153,7 @@
       ]
     },
     "SwapRight": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -163,7 +162,7 @@
       ]
     },
     "SwapDown": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -340,14 +339,14 @@
     },
     "SwitchToPreviousDisplay": null,
     "SwitchToDisplay1": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "OemOpenBrackets"
       ]
     },
     "SwitchToDisplay2": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "Oem6"
@@ -403,7 +402,7 @@
       ]
     },
     "MoveToDisplay1": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -411,7 +410,7 @@
       ]
     },
     "MoveToDisplay2": {
-      "IsDirectMode": true,
+      "IsDirectMode": false,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -471,12 +470,14 @@
   "ProcessIgnoreList": [
     "Taskmgr",
     "1Password",
-    "FancyWM"
+    "FancyWM",
+    ".*"
   ],
   "ClassIgnoreList": [
     "OperationStatusWindow",
     "#32770",
-    "1PasswordShortcuts"
+    "1PasswordShortcuts",
+    ".*"
   ],
   "RemindToRateReview": true,
   "ShowContextHints": false,
