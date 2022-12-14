@@ -1,5 +1,5 @@
 {
-  "ActivationHotkey": "LWin_LMenu",
+  "ActivationHotkey": "None_None",
   "ShowStartupWindow": false,
   "AllocateNewPanelSpace": false,
   "AutoCollapsePanels": false,
@@ -339,14 +339,14 @@
     },
     "SwitchToPreviousDisplay": null,
     "SwitchToDisplay1": {
-      "IsDirectMode": false,
+      "IsDirectMode": true,
       "Keys": [
         "LeftAlt",
         "OemOpenBrackets"
       ]
     },
     "SwitchToDisplay2": {
-      "IsDirectMode": false,
+      "IsDirectMode": true,
       "Keys": [
         "LeftAlt",
         "Oem6"
@@ -402,7 +402,7 @@
       ]
     },
     "MoveToDisplay1": {
-      "IsDirectMode": false,
+      "IsDirectMode": true,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
@@ -410,7 +410,7 @@
       ]
     },
     "MoveToDisplay2": {
-      "IsDirectMode": false,
+      "IsDirectMode": true,
       "Keys": [
         "LeftAlt",
         "LeftCtrl",
