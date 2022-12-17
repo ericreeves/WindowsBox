@@ -33,7 +33,7 @@ DrawRect:
       return
   Gui, +Lastfound +AlwaysOnTop +Toolwindow +HwndMyGuiHwnd
 
-  borderType:="inside"                ; set to inside, outside, or both
+  borderType:="both"                ; set to inside, outside, or both
 
   if (borderType="outside") { 
       outerX:=0
