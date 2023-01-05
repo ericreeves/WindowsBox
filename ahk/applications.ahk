@@ -3,6 +3,9 @@
 ; ^ Control
 ; + Shift
 ; & An ampersand may be used between any two keys or mouse buttons to combine them into a custom hotkey.
+;
+; https://www.autohotkey.com/docs/v1/KeyList.htm
+;
 
 
 #NoEnv
@@ -50,6 +53,37 @@ return
 		Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper", A_ScriptDir, Hide
 	}
 Return
+
+^XButton1::
+    Send, ^w
+return
+return
+
+^XButton2::
+    Send, ^w
+return
+return
+
+^WheelDown::
+    Send, ^{PgUp}
+return
+return
+
+^WheelUp::
+    Send, ^{PgDn}
+return
+return
+
+^RButton::
+    Send, {Browser_Back}
+return
+return
+
+^MButton::
+    Send, {Browser_Forward}
+return
+return
+
 
 ; These macros trigger when Autohotkey detects the Elecom MouseAssist program sending the Japanese keys.
 ; https://www.reddit.com/r/Trackballs/comments/3zrl8h/elecom_driver_autohotkey_trick/
