@@ -54,33 +54,49 @@ return
 	}
 Return
 
-^XButton1::
-    Send, ^w
-return
-return
+;^XButton1::
+;    Send, ^w
+;return
+;return
 
-^XButton2::
-    Send, ^w
-return
-return
+;^XButton2::
+;    Send, ^w
+;return
+;return
+
 
 ^WheelDown::
-    Send, ^{PgUp}
+   Send, {Left}
 return
 return
 
 ^WheelUp::
-    Send, ^{PgDn}
+   Send, {Right}
 return
 return
 
-^RButton::
-    Send, {Browser_Back}
++WheelDown::
+   Send, ^{PgUp}
 return
 return
 
-^MButton::
-    Send, {Browser_Forward}
++WheelUp::
+   Send, ^{PgDn}
+return
+return
+
++LButton::
+   Send, {Browser_Back}
+return
+return
+
++MButton::
+   Send, ^w
+return
+return
+
++RButton::
+   Send, {Browser_Forward}
 return
 return
 
