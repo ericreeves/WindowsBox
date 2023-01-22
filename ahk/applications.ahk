@@ -65,40 +65,40 @@ Return
 ;return
 
 
-^WheelDown::
+^+WheelDown::
    Send, {Left}
 return
 return
 
-^WheelUp::
+^+WheelUp::
    Send, {Right}
 return
 return
 
-+WheelDown::
-   Send, ^{PgUp}
-return
-return
-
-+WheelUp::
-   Send, ^{PgDn}
-return
-return
-
-+LButton::
-   Send, {Browser_Back}
-return
-return
-
-+MButton::
+^+MButton::
    Send, ^w
 return
 return
 
-+RButton::
-   Send, {Browser_Forward}
-return
-return
+; +WheelDown::
+;    Send, ^{PgUp}
+; return
+; return
+
+; +WheelUp::
+;    Send, ^{PgDn}
+; return
+; return
+
+; +LButton::
+;    Send, {Browser_Back}
+; return
+; return
+
+; +RButton::
+;    Send, {Browser_Forward}
+; return
+; return
 
 
 ; These macros trigger when Autohotkey detects the Elecom MouseAssist program sending the Japanese keys.
