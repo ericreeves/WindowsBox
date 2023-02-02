@@ -19,4 +19,5 @@ function Get-Random-Image {
 
 $WallPaper = Get-Random-Image -WallPaperPath $WallPaperPath
 $WallPaper | Out-File "$home\Pictures\Wallpaper\current-wallpaper.txt"
-Get-Monitor | Set-WallPaper -Path $WallPaper
+Set-AllDesktopWallpapers -Path $WallPaper
+# Get-Monitor | Set-WallPaper -Path $WallPaper
