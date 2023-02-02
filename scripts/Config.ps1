@@ -20,6 +20,11 @@ $Configs =
 		host_folder = "$HOME\.config\komorebi";
 		files       = "applications.yaml,eric-primary.json,komorebi.ahk,komorebi.generated.ahk,komorebic.lib.ahk,overrides.yaml,start-komorebi.ps1"
 	};
+	@{
+		repo_folder = "ueli";
+		host_folder = "$HOME\AppData\Roaming\ueli";
+		files       = "config.json,Preferences"
+	};
 )
 
 
