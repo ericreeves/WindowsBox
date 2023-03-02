@@ -8,8 +8,8 @@ komorebic start
 :wait_komorebi
 komorebic state >nul 2>&1 || goto wait_komorebi
 
-AutoHotKey.exe "%userprofile%"\Config\WindowsBox\ahk\komorebi.ahk
-AutoHotKey.exe "%userprofile%"\Config\WindowsBox\ahk\AppShortcuts.ahk
+AutoHotKey.exe "%userprofile%"\.config\WindowsBox\ahk\komorebi.ahk
+AutoHotKey.exe "%userprofile%"\.config\WindowsBox\ahk\AppShortcuts.ahk
 
 :: optional, if you want to keep this script running for some reason
 :: e.g.: I use this to auto restart my startup script if komorebi exit

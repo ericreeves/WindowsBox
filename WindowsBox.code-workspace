@@ -25,5 +25,7 @@
 			"path": "../../AppData/Roaming/ueli"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"powershell.cwd": "c:\\Users\\eric\\.config\\WindowsBox"
+	}
 }
