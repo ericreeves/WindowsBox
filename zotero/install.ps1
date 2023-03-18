@@ -1,0 +1,1 @@
+Copy-Item userChrome.css -Destination "$env:APPDATA\Zotero\Zotero\Profiles\vzvie7z6.default\chrome\userChrome.css"
