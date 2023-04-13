@@ -1,6 +1,5 @@
 Install-Module VirtualDesktop
 Install-Module -Name Terminal-Icons -Repository PSGallery
-# Install-Module PoshColor
 
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted       
 
