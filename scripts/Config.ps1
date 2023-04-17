@@ -5,26 +5,26 @@ $Configs =
 		host_folder = "$HOME\AppData\Local\Packages\2203VeselinKaraganev.FancyWM_9x2ndwrcmyd2c\LocalCache\Roaming\FancyWM";
 		files       = "settings.json";
 	};
-	@{
-		repo_folder = "glazewm";
-		host_folder = "$HOME\.glaze-wm";
-		files       = "config.yaml";
-	};
-	@{
-		repo_folder = "workspacer";
-		host_folder = "$HOME\.workspacer";
-		files       = "workspacer.config.csx,alacritty.yml";
-	};
-	@{
-		repo_folder = "komorebi";
-		host_folder = "$HOME\.config\komorebi";
-		files       = "applications.yaml,eric-primary.json,komorebi.ahk,komorebi.generated.ahk,komorebic.lib.ahk,overrides.yaml,start-komorebi.ps1"
-	};
-	@{
-		repo_folder = "ueli";
-		host_folder = "$HOME\AppData\Roaming\ueli";
-		files       = "config.json,Preferences"
-	};
+	# @{
+	# 	repo_folder = "glazewm";
+	# 	host_folder = "$HOME\.glaze-wm";
+	# 	files       = "config.yaml";
+	# };
+	# @{
+	# 	repo_folder = "workspacer";
+	# 	host_folder = "$HOME\.workspacer";
+	# 	files       = "workspacer.config.csx,alacritty.yml";
+	# };
+	# @{
+	# 	repo_folder = "komorebi";
+	# 	host_folder = "$HOME\.config\komorebi";
+	# 	files       = "applications.yaml,eric-primary.json,komorebi.ahk,komorebi.generated.ahk,komorebic.lib.ahk,overrides.yaml,start-komorebi.ps1"
+	# };
+	# @{
+	# 	repo_folder = "ueli";
+	# 	host_folder = "$HOME\AppData\Roaming\ueli";
+	# 	files       = "config.json,Preferences"
+	# };
 )
 
 
