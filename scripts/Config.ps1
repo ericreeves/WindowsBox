@@ -5,6 +5,12 @@ $Configs =
 		host_folder = "$HOME\AppData\Local\Packages\2203VeselinKaraganev.FancyWM_9x2ndwrcmyd2c\LocalCache\Roaming\FancyWM";
 		files       = "settings.json";
 	};
+	@{
+		repo_folder = "terminal";
+		host_folder = "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState"
+		files       = "settings.json";
+	};
+
 	# @{
 	# 	repo_folder = "glazewm";
 	# 	host_folder = "$HOME\.glaze-wm";
