@@ -19,8 +19,6 @@ $apps = @(
     @{ name = "GnuPG.Gpg4win"; interactive = "true" }
     @{ name = "Google.Chrome"; force = "true" }
     @{ name = "gsass1.NTop" }
-    @{ name = "Hashicorp.Packer" }
-    @{ name = "Hashicorp.Terraform" }
     @{ name = "JackieLiu.NotepadsApp" }
     @{ name = "JanDeDobbeleer.OhMyPosh" }
     @{ name = "Keybase" }

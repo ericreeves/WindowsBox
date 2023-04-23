@@ -1,27 +1,43 @@
 {
 	"folders": [
 		{
+			"name": "WindowsBox",
 			"path": "."
 		},
 		{
+			"name": "chezmoi",
+			"path": "../../.local/share/chezmoi"
+		},
+		{
+			"name": "PowerShell",
+			"path": "../../Documents/PowerShell"
+		},
+		{
+			"name": ".glaze-wm",
 			"path": "../../.glaze-wm"
 		},
 		{
+			"name": ".workspacer",
 			"path": "../../.workspacer"
 		},
 		{
-			"path": "../../.config/komorebi"
+			"name": "komorebi",
+			"path": "../komorebi"
 		},
 		{
-			"path": "../../.config/ahk"
+			"name": "ahk",
+			"path": "../ahk"
 		},
 		{
+			"name": "yasb",
 			"path": "../yasb"
 		},
 		{
+			"name": "FancyWM",
 			"path": "../../AppData/Local/Packages/2203VeselinKaraganev.FancyWM_9x2ndwrcmyd2c/LocalCache/Roaming/FancyWM"
 		},
 		{
+			"name": "ueli",
 			"path": "../../AppData/Roaming/ueli"
 		}
 	],
