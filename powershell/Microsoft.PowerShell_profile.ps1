@@ -1,13 +1,8 @@
-function refresh-path {
+function rehash {
     $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") +
                 ";" +
-               [System.Environment]::GetEnvironmentVariable("Path","User")
+                [System.Environment]::GetEnvironmentVariable("Path","User")
 }
-
-#oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\paradox.omp.json" | Invoke-Expression
-#paradox
-# M365Princess
-#oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\night-owl.omp.json" | Invoke-Expression
 
 oh-my-posh --init --shell pwsh --config "$env:POSH_THEMES_PATH\M365Princess.omp.json" | Invoke-Expression
 Import-Module posh-git

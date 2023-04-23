@@ -2,6 +2,8 @@ Install-Module VirtualDesktop -Scope CurrentUser
 Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser
 Install-Module posh-git -Scope CurrentUser
 Install-Module Watch -Scope CurrentUser
+Install-Module WingetTools -Scope CurrentUser
+
 
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted       
 
