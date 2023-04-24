@@ -1,7 +1,7 @@
 #
 # WinGet Packages to Install
 #
-$apps = @(
+$appsWinget = @(
     @{ name = "1Password" }
     # @{ name = "7zip.7zip" }
     @{ name = "9P1741LKHQS9" }
@@ -17,6 +17,7 @@ $apps = @(
     @{ name = "Git.Git"; interactive = "true" }
     @{ name = "GitHub.GitHubDesktop" }
     @{ name = "GnuPG.Gpg4win"; interactive = "true" }
+    @{ name = "GnuWin32.Make"; }
     @{ name = "Google.Chrome"; force = "true" }
     @{ name = "gsass1.NTop" }
     @{ name = "JackieLiu.NotepadsApp" }
@@ -56,12 +57,11 @@ $apps = @(
 #-------------------------------------------------------------------------------
 #--- Winget Apps ---
 #-------------------------------------------------------------------------------
-# winget manager
 
 Write-Output "Installing apps..."
 Write-Output ""
 
-Foreach ($app in $apps) {
+Foreach ($app in $appsWinget) {
     $listApp = winget list --exact -q $app.name
     if (![String]::Join("", $listApp).Contains($app.name)) {
         Write-host "Installing:" $app.name

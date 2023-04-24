@@ -1,15 +1,7 @@
-# Install winget-cli if needed
-if (-not(Get-Command winget)) {
-        try {
-                Write-Host "--- Installing winget-cli."
-                InstallWinget
-        }
-        catch {
-                throw $_.Exception.Message
-        }
-}
-else {
-        Write-Host "--- winget-cli already installed."
+
+function InstallScoop()
+{
+        irm get.scoop.sh | iex
 }
 
 function InstallWinget()
@@ -34,3 +26,31 @@ function InstallWinget()
 
 Write-Host "--- Setting Powershell ExecutionPolicy to Unrestricted."
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+
+# Install scoop if needed
+if (-not(Get-Command scoop)) {
+        try {
+                Write-Host "--- Installing scoop."
+                InstallScoop
+        }
+        catch {
+                throw $_.Exception.Message
+        }
+}
+else {
+        Write-Host "--- scoop already installed."
+}
+
+# Install winget-cli if needed
+if (-not(Get-Command winget)) {
+        try {
+                Write-Host "--- Installing winget-cli."
+                InstallWinget
+        }
+        catch {
+                throw $_.Exception.Message
+        }
+}
+else {
+        Write-Host "--- winget-cli already installed."
+}
