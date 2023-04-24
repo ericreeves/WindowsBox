@@ -21,6 +21,7 @@ $apps = @(
     @{ name = "gsass1.NTop" }
     @{ name = "JackieLiu.NotepadsApp" }
     @{ name = "JanDeDobbeleer.OhMyPosh" }
+    @{ name = "JesseDuffield.lazygit" }
     @{ name = "Keybase" }
     @{ name = "Lexikos.AutoHotkey" }
     @{ name = "MicaForEveryone.MicaForEveryone" }
