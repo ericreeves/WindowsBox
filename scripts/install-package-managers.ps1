@@ -2,6 +2,7 @@
 function InstallScoop()
 {
         irm get.scoop.sh | iex
+	scoop bucket add extras
 }
 
 function InstallWinget()

@@ -7,6 +7,20 @@ $appsScoop = @(
     @{ name = "terraform" }
     @{ name = "packer" }
     @{ name = "vault" }
+    @{ name = "ripgrep" }
+    @{ name = "vcredist2022" }
+    @{ name = "fd" }
+    @{ name = "sd" }
+    @{ name = "dust" }
+    @{ name = "dua" }
+    @{ name = "gdu" }
+    @{ name = "dog" }
+    @{ name = "xh" }
+    @{ name = "duf" }
+    @{ name = "bat" }
+    @{ name = "fzf" }
+    @{ name = "tldr" }
+#    @{ name = "exa" }
 )
 
 #-------------------------------------------------------------------------------
