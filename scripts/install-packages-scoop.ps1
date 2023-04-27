@@ -20,6 +20,7 @@ $appsScoop = @(
     @{ name = "bat" }
     @{ name = "fzf" }
     @{ name = "tldr" }
+    @{ name = "zig" }
 #    @{ name = "exa" }
 )
 
