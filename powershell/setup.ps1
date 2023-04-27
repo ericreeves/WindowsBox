@@ -4,6 +4,8 @@ Install-Module posh-git -Scope CurrentUser
 Install-Module Watch -Scope CurrentUser
 Install-Module WingetTools -Scope CurrentUser
 Install-Module HackF5.ProfileAlias -Scope CurrentUser
+Install-PackageProvider WinGet -Scope CurrentUser
+
 # Register-ProfileAliasInProfile
 
 
