@@ -21,6 +21,12 @@ $appsScoop = @(
     @{ name = "fzf" }
     @{ name = "tldr" }
     @{ name = "zig" }
+    @{ name = "winfetch" }
+    @{ name = "lf" }
+    @{ name = "bottom" }
+    @{ name = "btop" }
+    @{ name = "make" }
+    @{ name = "rust" }
 #    @{ name = "exa" }
 )
 
