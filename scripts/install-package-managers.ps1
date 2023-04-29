@@ -1,10 +1,11 @@
-
+# FUNCTION: Install Scoop
 function InstallScoop()
 {
-        irm get.scoop.sh | iex
+  Invoke-Expression get.scoop.sh | Invoke-Expression
 	scoop bucket add extras
 }
 
+# FUNCTION: Install Winget
 function InstallWinget()
 {
         # get latest download url
@@ -25,6 +26,9 @@ function InstallWinget()
 }
 
 
+##############################################
+# MAIN
+##############################################
 Write-Host "--- Setting Powershell ExecutionPolicy to Unrestricted."
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 

@@ -27,6 +27,7 @@ $appsScoop = @(
     @{ name = "btop" }
     @{ name = "make" }
     @{ name = "rust" }
+    @{ name = "python" }
 #    @{ name = "exa" }
 )
 
