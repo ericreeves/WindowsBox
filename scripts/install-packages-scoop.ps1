@@ -28,6 +28,10 @@ $appsScoop = @(
     @{ name = "make" }
     @{ name = "rust" }
     @{ name = "python" }
+    @{ name = "komorebi" }
+    @{ name = "whkd" }
+    @{ name = "autohotkey1.1" }
+    @{ name = "ffmpeg" }
 #    @{ name = "exa" }
 )
 
