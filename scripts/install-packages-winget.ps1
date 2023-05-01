@@ -35,6 +35,7 @@ $appsWinget = @(
     @{ name = "Microsoft.Sysinternals.ProcessMonitor"; admin = "true" }
     @{ name = "Microsoft.Teams" }
     @{ name = "Microsoft.VisualStudioCode" }
+    @{ name = "Microsoft.VisualStudio.2022.BuildTools" }
     @{ name = "Microsoft.WindowsTerminal" }
     @{ name = "MikeFarah.yq" }
     # @{ name = "Notion.Notion" }
