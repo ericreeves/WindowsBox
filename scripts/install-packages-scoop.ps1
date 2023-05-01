@@ -30,7 +30,7 @@ $appsScoop = @(
     @{ name = "python" }
     @{ name = "komorebi" }
     @{ name = "whkd" }
-    @{ name = "autohotkey1.1" }
+    @{ name = "autohotkey" }
     @{ name = "ffmpeg" }
 #    @{ name = "exa" }
 )
