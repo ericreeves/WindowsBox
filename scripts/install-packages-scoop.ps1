@@ -32,6 +32,7 @@ $appsScoop = @(
     @{ name = "whkd" }
     @{ name = "autohotkey" }
     @{ name = "ffmpeg" }
+    @{ name = "stylua" }
 #    @{ name = "exa" }
 )
 
