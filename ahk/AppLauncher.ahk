@@ -16,7 +16,7 @@ SetBatchLines, -1
 
 SetWorkingDir, %A_ScriptDir%
 
-$CapsLock::Ctrl 
+; $CapsLock::Ctrl 
 
 #s:: Send {PrintScreen}
 
@@ -33,19 +33,19 @@ return
 !q:: Send !{F4}
 
 ; Application Shortcuts
-; !+t::
-; 	Run, wt.exe
-; Return
+!+Enter::
+	Run, wezterm-gui.exe
+Return
 
-; !+c::
-; 	Run, chrome.exe
-; Return
+!+c::
+	Run, chrome.exe
+Return
 
-; !e::
-; 	Run, msedge.exe
-; Return
+!+e::
+	Run, msedge.exe
+Return
 
-!^Backspace::
+!+Backspace::
 	ScriptPath := A_ScriptDir "\scripts\Random-Wallpaper.ps1"
 	if (A_ComputerName = "Analog") {
 		Run, PowerShell.exe -Command "%ScriptPath% -WallPaperPath C:\Users\eric\Pictures\Wallpaper\5120x1440", A_ScriptDir, Hide
