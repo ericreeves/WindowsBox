@@ -11,6 +11,9 @@
 		{
 			"name": "PowerShell",
 			"path": "../../Documents/PowerShell"
+		},
+		{
+			"path": "../../AppData/Roaming/nushell"
 		}
 	],
 	"settings": {

@@ -34,6 +34,7 @@ $appsScoop = @(
     @{ name = "ffmpeg" }
     @{ name = "stylua" }
     @{ name = "winaero-tweaker" }
+    @{ name = "whatinstartup" }
 #    @{ name = "exa" }
 )
 

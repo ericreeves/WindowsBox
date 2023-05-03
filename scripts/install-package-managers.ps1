@@ -4,6 +4,7 @@ function InstallScoop()
   Invoke-Expression get.scoop.sh | Invoke-Expression
 	scoop bucket add extras
 	scoop bucket add versions
+	scoop bucket add nirsoft
 }
 
 # FUNCTION: Install Winget
