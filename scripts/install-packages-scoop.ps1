@@ -35,6 +35,7 @@ $appsScoop = @(
     @{ name = "stylua" }
     @{ name = "winaero-tweaker" }
     @{ name = "whatinstartup" }
+    @{ name = "shellexview" }
 #    @{ name = "exa" }
 )
 
