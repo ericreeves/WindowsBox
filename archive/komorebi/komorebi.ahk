@@ -12,14 +12,19 @@ SysGet, monitorCount, MonitorCount
 ; Options
 ;
 
+AltFocusHack("enable")
 WatchConfiguration("enable")
 FocusFollowsMouse("disable", "windows")
 MouseFollowsFocus("disable")
 ActiveWindowBorder("enable")
 ActiveWindowBorderColour(88, 129, 170, "single")
+ActiveWindowBorderColour(88, 129, 170, "stack")
+ActiveWindowBorderColour(88, 129, 170, "monocle")
+ActiveWindowBorderWidth("2")
 CrossMonitorMoveBehaviour("insert")
 FocusFollowsMouse("enabled", "windows")
 WindowHidingBehaviour("hide")
+
 
 Loop, %monitorCount% {
   monitorIndex := A_Index - 1
@@ -30,8 +35,6 @@ Loop, %monitorCount% {
     WorkspacePadding(monitorIndex, workspaceIndex, 10)
   }
 }
-
-CompleteConfiguration()
 
 ;
 ; Keybindings
@@ -126,3 +129,5 @@ return
 
 ; Close application; Alt + Q
 !q:: WinClose, A
+
+CompleteConfiguration()
