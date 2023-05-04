@@ -36,6 +36,8 @@ $appsScoop = @(
     @{ name = "winaero-tweaker" }
     @{ name = "whatinstartup" }
     @{ name = "shellexview" }
+    @{ name = "topgrade" }
+    @{ name = "zoxide" }
 #    @{ name = "exa" }
 )
 
