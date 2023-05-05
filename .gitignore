@@ -3,3 +3,6 @@ ahk/komorebi.log
 ahk/komorebi.sock
 ahk/komorebic.sock
 ahk/komorebi.hwnd.json
+
+**/*exe
+**/*msixbundle
