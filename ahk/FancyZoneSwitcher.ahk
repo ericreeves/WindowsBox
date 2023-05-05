@@ -12,7 +12,7 @@ arr := ["0", "9", "8", "1", "2", "3", "4", "5", "6", "7"]
 idx := 0
 
 ; Cycle Forward through Layouts
-!#.::
+!x::
 {
   global idx += 1
   if ( idx > (arr.Length - 1))
@@ -22,7 +22,7 @@ idx := 0
 }
 
 ; Cycle Backward through Layouts
-!#,::
+!z::
 {
   global idx -= 1
   if (idx < 1)

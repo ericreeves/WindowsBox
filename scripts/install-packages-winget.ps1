@@ -7,6 +7,7 @@ $appsWinget = @(
     @{ name = "9P1741LKHQS9" }
     @{ name = "AgileBits.1Password.CLI" }
     @{ name = "AltSnap.AltSnap" }
+    @{ name = "brianlima.uwphook" }
     @{ name = "Audacity.Audacity" }
     @{ name = "Discord.Discord" }
     @{ name = "Eassos.DiskGenius" }
