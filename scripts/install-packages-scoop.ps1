@@ -24,6 +24,7 @@ $appsScoop = @(
     @{ name = "winfetch" }
     @{ name = "lf" }
     @{ name = "bottom" }
+    @{ name = "lazygit" }
     @{ name = "btop" }
     @{ name = "make" }
     @{ name = "rust" }
