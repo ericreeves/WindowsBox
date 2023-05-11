@@ -39,6 +39,7 @@ $appsScoop = @(
     @{ name = "shellexview" }
     @{ name = "topgrade" }
     @{ name = "zoxide" }
+    @{ name = "scoop-search" }
 #    @{ name = "exa" }
 )
 
