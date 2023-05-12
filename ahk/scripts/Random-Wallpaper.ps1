@@ -19,5 +19,5 @@ function Get-Random-Image {
 
 $WallPaper = Get-Random-Image -WallPaperPath $WallPaperPath
 $WallPaper | Out-File "$home\OneDrive\Pictures\Wallpaper\current-wallpaper.txt"
+$WallPaper
 Set-AllDesktopWallpapers -Path $WallPaper
-# Get-Monitor | Set-WallPaper -Path $WallPaper
