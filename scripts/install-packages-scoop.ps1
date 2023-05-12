@@ -39,6 +39,8 @@ $appsScoop = @(
     @{ name = "shellexview" }
     @{ name = "topgrade" }
     @{ name = "zoxide" }
+    @{ name = "scoop-search" }
+    @{ name = "nvcleaninstall" }
 #    @{ name = "exa" }
 )
 
