@@ -8,7 +8,7 @@ $appsScoop = @(
     @{ name = "packer" }
     @{ name = "vault" }
     @{ name = "ripgrep" }
-    @{ name = "vcredist2022" }
+    # @{ name = "vcredist2022" }
     @{ name = "fd" }
     @{ name = "sd" }
     @{ name = "dust" }
@@ -27,7 +27,7 @@ $appsScoop = @(
     @{ name = "lazygit" }
     @{ name = "btop" }
     @{ name = "make" }
-    @{ name = "rust" }
+    # @{ name = "rust" }
     @{ name = "python" }
     @{ name = "komorebi" }
     @{ name = "whkd" }
@@ -40,7 +40,7 @@ $appsScoop = @(
     @{ name = "topgrade" }
     @{ name = "zoxide" }
     @{ name = "scoop-search" }
-    @{ name = "nvcleaninstall" }
+    @{ name = "nvcleanstall" }
 #    @{ name = "exa" }
 )
 
