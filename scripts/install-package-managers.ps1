@@ -5,6 +5,7 @@ function InstallScoop()
 	scoop bucket add extras
 	scoop bucket add versions
 	scoop bucket add nirsoft
+        scoop bucket add nerd-fonts
 }
 
 # FUNCTION: Install Winget
